@@ -83,7 +83,7 @@ Initial Build
 =============
 
 Once configured the extension can be built by specifying a target of build followed by the name
-cmake build folder:
+of the cmake build folder:
 
 .. code:: shell
 
