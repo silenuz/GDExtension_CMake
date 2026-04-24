@@ -23,13 +23,16 @@ created from the template is called mycooldemo:
 
 Once cloned, you will have a project that is composed as follows:
 
-.. image:: img/intial_repo_content.png
+.. figure:: img/intial_repo_content.png
+    :align: left
+
+    Initial Repository Content
 
 #. bin folder
-#. this is the folder that will contain any class documentation for classes created as part of the extension
-#. this folder contains the godot-cpp bindings for creating the extension
-#. this folder contains the example project
-#. this folder is the folder for the source code for the extension
+#. Contains any class documentation for classes created as part of the extension
+#. godot-cpp bindings for creating the extension
+#. example project
+#. source code for the extension
 #. empty custom build profile
 #. cmake configuration file
 #. main file that is used by scons to build the project (not used in any way by cmake)
@@ -45,7 +48,7 @@ Once cloned, you will have a project that is composed as follows:
 Initial Configuration
 =====================
 
-Before building with cmake, the project has to be configured.  Open a terminal in the topmost level of the project that
+After cloning the repository cmake has to be configured. Open a terminal in the topmost level of the project that
 was just cloned,  for example mycooldemo and execute the following:
 
 .. code:: shell
@@ -60,17 +63,18 @@ The build directory is specified so that generated files do not clutter the sour
 
 The value after the ``-G`` argument is the generator to be used, which in the above example is Ninja.
 
-.. note::
-    CMake doesn't build the code, it generates the files that a build tool uses, in this case the Ninja generator creates
-    Ninja build files.
+..
+    .. note::
+        CMake doesn't build the code, it generates the files that a build tool uses, in this case the Ninja generator creates
+        Ninja build files.
 
-    To see the list of available generators, in a terminal run
+        To see the list of available generators, in a terminal run
 
-    .. code:: shell
+        .. code:: shell
 
-        cmake -E capabilities
+            cmake -E capabilities
 
-    and look for the generators array, it will contain the generators available to cmake.
+        and look for the generators array, it will contain the generators available to cmake.
 
 If the generator is Ninja or Makefiles you can use the configure target to also generate a ``compile_commands.json`` in the build folder
 that can be used with clangd.
@@ -106,6 +110,9 @@ The bin folder of the project contains the output of the build.
 #. the configuration file for the extension, it contains a list of file paths telling Godot where to
    find the compiled library for the extension.
 
+Reviewing the Build
+^^^^^^^^^^^^^^^^^^^
+
 Opening the folder of the target system that matches the current build platform should reveal the library
 file that was built above.  For example on linux, open the linux folder to see the compiled library.
 
@@ -129,6 +136,8 @@ And the actual library is named ``EXTENSION-NAME.linux.template_debug.x86_64.so`
 will have to be adjusted to account for the lack of the ``lib`` prefix.  A failure to do so will result in a file
 not found error when the project is opened in Godot.
 
+Testing the Build
+^^^^^^^^^^^^^^^^^
 The project can now be tested by launching the Godot editor, importing the project folder and running
 the main scene. It should print the following in the console:
 
