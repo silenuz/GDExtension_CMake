@@ -23,19 +23,22 @@ created from the template is called mycooldemo:
 
 Once cloned, you will have a project that is composed as follows:
 
-.. figure:: img/intial_repo_content.png
-    :align: left
+.. list-table::
+   :widths: 20 50
+   :class: borderless
 
-    Initial Repository Content
+   * - .. figure:: img/intial_repo_content.png
+          :width: 100%
 
-#. bin folder
-#. Contains any class documentation for classes created as part of the extension
-#. godot-cpp bindings for creating the extension
-#. example project
-#. source code for the extension
-#. empty custom build profile
-#. cmake configuration file
-#. main file that is used by scons to build the project (not used in any way by cmake)
+          Initial Repository Content
+     - #. bin folder
+       #. class documentation for classes created for the extension
+       #. godot-cpp bindings for creating the extension
+       #. example project
+       #. source code for the extension
+       #. empty custom build profile
+       #. cmake configuration file
+       #. main file that is used by scons to build the project (not used by cmake)
 
 .. note::
     If the repository was cloned without the ``--recursive`` flag, then the godot-cpp folder will be empty.  To remedy
@@ -96,19 +99,31 @@ of the cmake build folder:
 If the build command worked, you should have a new library file for the
 target system in the project folder.  The example project folder contains the following:
 
-.. image:: img/project_content.png
+.. list-table::
+   :widths: 20 50
+   :class: borderless
 
-#. the bin folder contains the configuration information for the extension, as well as the compiled shared
-   library for the extension.
-#. The rest of the contents in the project folder constitute a regular Godot project.
+   * - .. figure:: img/project_content.png
+          :width: 100%
+
+          Project Folder
+     - #. contains compiled library and extension configuration
+       #. standard Godot project.
+
 
 The bin folder of the project contains the output of the build.
 
-.. image:: img/project_bin.png
+.. list-table::
+   :widths: 20 50
+   :class: borderless
 
-#. these folders contain the compiled library for each target system
-#. the configuration file for the extension, it contains a list of file paths telling Godot where to
-   find the compiled library for the extension.
+   * - .. figure:: img/project_bin.png
+          :width: 100%
+
+          Project Bin Folder
+     - #. compiled libraries for target systems indicated by folder name
+       #. configuration file for the extension
+
 
 Reviewing the Build
 ^^^^^^^^^^^^^^^^^^^
