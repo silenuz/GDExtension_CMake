@@ -85,5 +85,49 @@ Next edit the original block and change ``PREFIX ""`` with ``PREFIX "${LIBPREFIX
 Edit Configuration File
 =======================
 
+Now that cmake compiles the library with a different name, in order for Godot to be able to load the extension, the library's entry
+symbol has to be edited along with changing the extension name in the various defined paths in the configuration file.
+
+Open the extension configuration file(``project/bin/example.gdextension``).
+
+Change Entry Symbol
+^^^^^^^^^^^^^^^^^^^
+
+Find the configurations section (it should be near the top) and looks like this:
+
+.. code:: INI
+
+    [configuration]
+
+    entry_symbol = "example_library_init"
+    compatibility_minimum = "4.1"
+    reloadable = false
+
+Change the entry symbol from ``example_library_init`` to ``libraryname_library_init``, so for the cooldemo
+library in the example it is changed to this:
+
+.. code:: INI
+
+    [configuration]
+
+    entry_symbol = "cooldemo_library_init"
+    compatibility_minimum = "4.1"
+    reloadable = false
+
+Change Extension Path
+^^^^^^^^^^^^^^^^^^^^^
+
+Next have a look at the library section, this section informs Godot of the path to the extension for various target
+systems.  To adjust the paths in this section it is easiest to just do a find and replace.
+
+If the CMakeLists.txt file was altered to generate the lib prefix on systems other than windows,
+find "``EXTENSION-NAME``" and replace with the actual library name like "``cooldemo``".
+
+Otherwise find "``libEXTENSION-NAME``" and replace it with the library name.
+
+Source Code Configuration
+=========================
+
+
 
 
