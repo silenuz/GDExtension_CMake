@@ -158,7 +158,7 @@ the command line can be used to launch the Godot editor and load the project.  T
 
 ``/path/to/godot.executable --editor --path /absolute/path/to/project``
 
-After the project is loaded in the editor, the extension can be tested by running the main scene, it should print the following to the console.
+After the project is loaded in the editor, the extension can be tested by running the main scene which should print the following to the console.
 
 ::
 
