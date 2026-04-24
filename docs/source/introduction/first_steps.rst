@@ -156,7 +156,7 @@ Testing the Build
 The project can now be tested by launching the Godot editor and importing the project folder, or alternatively
 the command line can be used to launch the Godot editor and load the project.  To do so the command is
 
-``/path/to/godot.executable --editor --path /absoulte/path/to/project``
+``/path/to/godot.executable --editor --path /absolute/path/to/project``
 
 After the project is loaded in the editor, the extension can be tested by running the main scene, it should print the following to the console.
 
