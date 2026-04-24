@@ -48,12 +48,12 @@ Currently the CMakeLists.txt file does not currently set a prefix for the librar
 possible name mismatch between the generated library and the content of extension configuration file(``project/bin/example.gdextension``).
 
 This comes down to a matter of preference, the cmake configuration can be edited to generate the
-necessary prefix so the generated library conforms to the library naming conventions,
+necessary prefix so the library conforms to the naming conventions,
 on the various target systems.
 
 Or the library prefix can be omitted from the file name in the extension configuration file,
 which will be the next file to edit, where the name will have to be adjusted anyway.
-Jump to `Edit Configuration File`_ if the preference is to just adjust the name in the configuration file.
+If the preference is to just adjust the name in the configuration file, skip to `Edit Configuration File`_ .
 
 To add prefix generation to the cmake configuration open CMakeLists.txt, and scroll down to near the bottom where this
 block of code is:
