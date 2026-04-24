@@ -4,7 +4,16 @@
    contain the root `toctree` directive.
 
 CMake Guide For GDExtensions
-============================
+----------------------------
+A less then comprehensive guide to creating a Godot GDExtension using cmake.
+
+Requirements:
+=============
+* Godot >= 4.3
+* c++ compiler
+* CMake >= 3.17
+* git client
+* python
 
 .. toctree::
    :maxdepth: 2
