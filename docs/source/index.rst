@@ -19,8 +19,7 @@ Requirements:
    :maxdepth: 2
    :caption: Contents:
 
-   introduction/first_steps
-   introduction/extension_configuration
+   introduction/introduction
    godot-cpp/configuration
    godot-cpp/variables
    ide/kate
