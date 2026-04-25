@@ -84,6 +84,8 @@ Next edit the original block and change ``PREFIX ""`` with ``PREFIX "${LIBPREFIX
 
 Edit Configuration File
 =======================
+The `.gdextension <https://docs.godotengine.org/en/stable/tutorials/scripting/gdextension/gdextension_file.html#>`_ file in your project contains the instructions for how to load the GDExtension.
+The instructions are separated into specific sections.
 
 Now that cmake compiles the library with a different name, in order for Godot to be able to load the extension, the library's entry
 symbol has to be edited along with changing the extension name in the various defined paths in the configuration file.
@@ -124,6 +126,18 @@ If the CMakeLists.txt file was altered to generate the lib prefix on systems oth
 find "``EXTENSION-NAME``" and replace with the actual library name like "``cooldemo``".
 
 Otherwise find "``libEXTENSION-NAME``" and replace it with the library name.
+
+Change File Name
+^^^^^^^^^^^^^^^^
+
+Technically the name portion of the configuration file doesn't matter, as Godot loads it based on the file extension,
+however it is recommended that the configuration file be renamed to reflect the name of the library.
+
+.. todo: this sucks find better wording
+
+Currently the configuration file is named "``example.gdextension``"
+replace the word example with the library name like this "``cooldemo.gdextension``".
+
 
 Source Code Configuration
 =========================
