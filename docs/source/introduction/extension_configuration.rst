@@ -142,6 +142,46 @@ replace the word example with the library name like this "``cooldemo.gdextension
 Source Code Configuration
 =========================
 
+The last step is to edit the source code in ``src/register_types.cpp``, this file is responsible for initializing
+the extension and registering objects in the extension with the Godot engine.  Lastly it is also responsible
+for any steps required when uninitializing the extension.
 
+Rename Init Function
+^^^^^^^^^^^^^^^^^^^^
 
+Open ``src/register_types.cpp`` and scroll to near the bottom where the initialization function is, it looks like this:
+
+.. code:: cpp
+
+    	// Initialization
+	GDExtensionBool GDE_EXPORT example_library_init(GDExtensionInterfaceGetProcAddress p_get_proc_address, GDExtensionClassLibraryPtr p_library, GDExtensionInitialization *r_initialization)
+	{
+		GDExtensionBinding::InitObject init_obj(p_get_proc_address, p_library, r_initialization);
+		init_obj.register_initializer(initialize_gdextension_types);
+		init_obj.register_terminator(uninitialize_gdextension_types);
+		init_obj.set_minimum_library_initialization_level(MODULE_INITIALIZATION_LEVEL_SCENE);
+
+		return init_obj.init();
+	}
+
+Now replace the word example in the function definition to be the name chosen as the entry symbol in the gdextension
+configuration file.  For the cooldemo example the original:
+
+``GDExtensionBool GDE_EXPORT example_library_init(GDExtensionInterfaceGetProcAddress p_get_proc_address, GDExtensionClassLibraryPtr p_library, GDExtensionInitialization *r_initialization)``
+
+would become:
+
+``GDExtensionBool GDE_EXPORT cooldemo_library_init(GDExtensionInterfaceGetProcAddress p_get_proc_address, GDExtensionClassLibraryPtr p_library, GDExtensionInitialization *r_initialization)``
+
+At this point the extension is properly configured, and can be built and tested,
+however while the file is open let's examine the other two methods in the file to see how the example extension
+is registered with the Godot engine.
+
+Registering Classes
+^^^^^^^^^^^^^^^^^^^
+Soon
+
+Un-Initialization
+^^^^^^^^^^^^^^^^^
+Soon
 
