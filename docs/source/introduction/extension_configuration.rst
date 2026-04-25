@@ -167,19 +167,52 @@ Open ``src/register_types.cpp`` and scroll to near the bottom where the initiali
 Now replace the word example in the function definition to be the name chosen as the entry symbol in the gdextension
 configuration file.  For the cooldemo example the original:
 
-``GDExtensionBool GDE_EXPORT example_library_init(GDExtensionInterfaceGetProcAddress p_get_proc_address, GDExtensionClassLibraryPtr p_library, GDExtensionInitialization *r_initialization)``
+``GDExtensionBool GDE_EXPORT example_library_init``
 
 would become:
 
-``GDExtensionBool GDE_EXPORT cooldemo_library_init(GDExtensionInterfaceGetProcAddress p_get_proc_address, GDExtensionClassLibraryPtr p_library, GDExtensionInitialization *r_initialization)``
+``GDExtensionBool GDE_EXPORT cooldemo_library_init``
 
 At this point the extension is properly configured, and can be built and tested,
-however while the file is open let's examine the other two methods in the file to see how the example extension
-is registered with the Godot engine.
+however while the file is open, let's examine the other two methods in the file, to see how the example extension's
+"``ExampleClass``" is registered with the Godot engine.
 
 Registering Classes
 ^^^^^^^^^^^^^^^^^^^
-Soon
+Near the top of the of the file is the ``initialize_gdextension_types`` function.  This function is where classes
+designed to integrate with the Godot engine must be registered.
+
+Currently it should look like this:
+
+.. code:: cpp
+
+   void initialize_gdextension_types(ModuleInitializationLevel p_level)
+   {
+       if (p_level != MODULE_INITIALIZATION_LEVEL_SCENE) {
+           return;
+       }
+       GDREGISTER_CLASS(ExampleClass);
+   }
+
+The extension currently registers a single class called ``ExampleClass``.
+Classes registered here can be instantiated and used in Godot, to see how the ``ExampleClass``
+is used in Godot to print "``Type: 24``", open ``project/example.gd`` which is the script attached
+to the main scene.  The script is pretty simple, the example class defines a method called "``print_type``"
+which takes a variant as an argument, and prints the variant's type.
+
+When the scene reaches the ``_ready()`` state, the example class object is instantiated in the standard way,
+it then calls the ``print_type`` function passing itself as the argument, which means the ``ExampleClass``
+has a variant type of 24.
+
+.. code:: GDScript
+
+   extends Node
+
+   func _ready() -> void:
+       var example := ExampleClass.new()
+       example.print_type(example)
+
+
 
 Un-Initialization
 ^^^^^^^^^^^^^^^^^
