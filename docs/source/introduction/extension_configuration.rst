@@ -228,7 +228,7 @@ has a variant type of 24.
 Un-Initialization
 ^^^^^^^^^^^^^^^^^
 
-The method that is responsible for unloading the extension is just below the the ``intialize_gdextension_types`` function.
+The method that is responsible for unloading the extension is called ``uninitialize_gdextension_types`` and should be right below the the ``intialize_gdextension_types`` function,.
 
 * Purpose:  It acts as the counterpart to initialize_gdextension_types, ensuring resources allocated in C++ are properly freed to avoid memory leaks or crashes during hot reloading.
 * Signature: It usually takes ModuleInitializationLevel p_level as an argument to determine if it should clean up core, editor, or scene types
