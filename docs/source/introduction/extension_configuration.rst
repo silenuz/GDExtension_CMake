@@ -174,16 +174,25 @@ would become:
 ``GDExtensionBool GDE_EXPORT cooldemo_library_init``
 
 At this point the extension is properly configured, and can be built and tested,
-however while the file is open, let's examine the other two methods, to see how the example extension's
-"``ExampleClass``" is registered, and examine the method that unloads the extension, where cleanup
-for the extension happens.
+however while the file is open, let's examine the other two methods, to see how the extension's
+"``ExampleClass``" is registered, and examine the method that unloads the extension.
 
 Registering Classes
 ^^^^^^^^^^^^^^^^^^^
-Near the top of the of the file is the ``initialize_gdextension_types`` function.  This function is where classes
-designed to integrate with the Godot engine must be registered.
+Near the top of the of the file is the ``initialize_gdextension_types`` function,
+which receives pointers from Godot to initiate binding to the engine.
 
-Currently it should look like this:
+The library_init function sets up registration callbacks (like register_initializer) and defines the initialization level.
+Godot calls this initialization function across four levels:
+    * CORE: Post-engine core.
+    * SERVERS: Post-servers (physics/rendering).
+    * SCENE: Registration for nodes and objects.
+    * EDITOR: Editor-specific plugins.
+
+Within the initializer function, register classes with the Godot ClassDB using "``GDREGISTER_CLASS(ClassName)``"
+specifically during the SCENE level to make them available in the editor.
+
+The method in the example extension:
 
 .. code:: cpp
 
@@ -195,15 +204,14 @@ Currently it should look like this:
        GDREGISTER_CLASS(ExampleClass);
    }
 
-The extension currently registers a single class called ``ExampleClass``.
-Classes registered here can be instantiated and used in Godot, to see how the ``ExampleClass``
-is used in Godot to print "``Type: 24``", open ``project/example.gd`` which is the script attached
-to the main scene.  The script is pretty simple, the example class defines a method called "``print_type``"
+The extension currently registers a single class called ``ExampleClass``, at the scene initialization level.
+The example class defines a method called "``print_type``"
 which takes a variant as an argument, and prints the variant's type.
 
-When the scene reaches the ``_ready()`` state, the example class object is instantiated in the standard way,
-it then calls the ``print_type`` function passing itself as the argument, which means the ``ExampleClass``
-has a variant type of 24.
+To see how the ``ExampleClass`` is used in Godot to print "``Type: 24``", open ``project/example.gd`` which is
+the script attached to the main scene.
+
+The script is pretty simple:
 
 .. code:: GDScript
 
@@ -212,6 +220,10 @@ has a variant type of 24.
    func _ready() -> void:
        var example := ExampleClass.new()
        example.print_type(example)
+
+When the scene reaches the ``_ready()`` state, the example class object is instantiated in the standard way,
+it then calls the ``print_type`` function passing itself as the argument, which means the ``ExampleClass``
+has a variant type of 24.
 
 Un-Initialization
 ^^^^^^^^^^^^^^^^^
@@ -234,9 +246,11 @@ Typical Usage:
 
 This function is empty as the extension currently requires no cleanup.
 
-* Hot Reloading Warning: If you are using hot reloading (reloadable = true in .gdextension), failing to implement this function properly can lead to crashes in Main::cleanup()
-* Singleton Cleanup: If you registered singletons, they must be unregistered here. Be cautious with GDExtensionManager, ResourceUID, or IP singletons, as they can cause crashes if not handled correctly during shutdown
-* Static Variable Issues: Do not use static variables with Godot types (like RID or Node) in your classes, as they may be destroyed after the GDExtension system has already shut down.
+.. warning::
+
+    * Hot Reloading Warning: If you are using hot reloading (reloadable = true in .gdextension), failing to implement this function properly can lead to crashes in Main::cleanup()
+    * Singleton Cleanup: If you registered singletons, they must be unregistered here. Be cautious with GDExtensionManager, ResourceUID, or IP singletons, as they can cause crashes if not handled correctly during shutdown
+    * Static Variable Issues: Do not use static variables with Godot types (like RID or Node) in your classes, as they may be destroyed after the GDExtension system has already shut down.
 
 
 
