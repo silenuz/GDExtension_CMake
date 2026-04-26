@@ -209,6 +209,12 @@ The extension currently registers a single class called ``ExampleClass``, at the
 The example class defines a method called "``print_type``"
 which takes a variant as an argument, and prints the variant's type.
 
+.. code:: cpp
+
+   void ExampleClass::print_type(const Variant &p_variant) const {
+       print_line(vformat("Type: %d", p_variant.get_type()));
+   }
+
 To see how the ``ExampleClass`` is used in Godot to print "``Type: 24``", open ``project/example.gd`` which is
 the script attached to the main scene.
 
