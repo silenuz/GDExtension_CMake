@@ -174,8 +174,9 @@ would become:
 ``GDExtensionBool GDE_EXPORT cooldemo_library_init``
 
 At this point the extension is properly configured, and can be built and tested,
-however while the file is open, let's examine the other two methods in the file, to see how the example extension's
-"``ExampleClass``" is registered with the Godot engine.
+however while the file is open, let's examine the other two methods, to see how the example extension's
+"``ExampleClass``" is registered, and examine the method that unloads the extension, where cleanup
+for the extension happens.
 
 Registering Classes
 ^^^^^^^^^^^^^^^^^^^
@@ -212,9 +213,30 @@ has a variant type of 24.
        var example := ExampleClass.new()
        example.print_type(example)
 
-
-
 Un-Initialization
 ^^^^^^^^^^^^^^^^^
-Soon
+
+The method that is responsible for unloading the extension is just below the the ``intialize_gdextension_types`` function.
+
+* Purpose:  It acts as the counterpart to initialize_gdextension_types, ensuring resources allocated in C++ are properly freed to avoid memory leaks or crashes during hot reloading.
+* Signature: It usually takes ModuleInitializationLevel p_level as an argument to determine if it should clean up core, editor, or scene types
+
+Typical Usage:
+
+.. code:: cpp
+
+   void uninitialize_gdextension_types(ModuleInitializationLevel p_level) {
+       if (p_level != MODULE_INITIALIZATION_LEVEL_SCENE) {
+           return;
+       }
+       // cleanup registration here
+   }
+
+This function is empty as the extension currently requires no cleanup.
+
+* Hot Reloading Warning: If you are using hot reloading (reloadable = true in .gdextension), failing to implement this function properly can lead to crashes in Main::cleanup()
+* Singleton Cleanup: If you registered singletons, they must be unregistered here. Be cautious with GDExtensionManager, ResourceUID, or IP singletons, as they can cause crashes if not handled correctly during shutdown
+* Static Variable Issues: Do not use static variables with Godot types (like RID or Node) in your classes, as they may be destroyed after the GDExtension system has already shut down.
+
+
 
