@@ -184,10 +184,11 @@ which receives pointers from Godot to initiate binding to the engine.
 
 The library_init function sets up registration callbacks (like register_initializer) and defines the initialization level.
 Godot calls this initialization function across four levels:
-    * CORE: Post-engine core.
-    * SERVERS: Post-servers (physics/rendering).
-    * SCENE: Registration for nodes and objects.
-    * EDITOR: Editor-specific plugins.
+
+   * CORE: Post-engine core.
+   * SERVERS: Post-servers (physics/rendering).
+   * SCENE: Registration for nodes and objects.
+   * EDITOR: Editor-specific plugins.
 
 Within the initializer function, register classes with the Godot ClassDB using "``GDREGISTER_CLASS(ClassName)``"
 specifically during the SCENE level to make them available in the editor.
