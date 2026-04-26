@@ -97,7 +97,7 @@ godot-cpp Variable List
 | NG_AS_ERROR | O |     |                                              |
 |             | L |     |                                              |
 +-------------+---+-----+----------------------------------------------+
-| GODOT_      | S | p   | The directory of a Godot project folder      |
+| GODOT       | S | p   | The directory of a Godot project folder      |
 | PROJECT_DIR | T | roj |                                              |
 |             | R | ect |                                              |
 |             | I |     |                                              |
