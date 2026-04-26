@@ -180,7 +180,7 @@ however while the file is open, let's examine the other two methods, to see how 
 Registering Classes
 ^^^^^^^^^^^^^^^^^^^
 Near the top of the of the file is the ``initialize_gdextension_types`` function,
-which receives pointers from Godot to initiate binding to the engine.
+which receives pointers from Godot to initiate binding with the engine.
 
 The library_init function sets up registration callbacks (like register_initializer) and defines the initialization level.
 Godot calls this initialization function across four levels:
@@ -215,7 +215,7 @@ which takes a variant as an argument, and prints the variant's type.
        print_line(vformat("Type: %d", p_variant.get_type()));
    }
 
-To see how the ``ExampleClass`` is used in Godot to print "``Type: 24``", open ``project/example.gd`` which is
+To see how the ``ExampleClass`` is used in Godot to print "``Type: 24``", open ``demo/example.gd`` which is
 the script attached to the main scene.
 
 The script is pretty simple:
