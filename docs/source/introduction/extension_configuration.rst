@@ -90,7 +90,7 @@ The instructions are separated into specific sections.
 Now that cmake compiles the library with a different name, in order for Godot to be able to load the extension, the library's entry
 symbol has to be edited along with changing the extension name in the various defined paths in the configuration file.
 
-Open the extension configuration file(``project/bin/example.gdextension``).
+Open the extension configuration file(``demo/bin/example.gdextension``).
 
 Change Entry Symbol
 ^^^^^^^^^^^^^^^^^^^
