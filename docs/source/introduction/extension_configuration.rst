@@ -1,8 +1,11 @@
 Extension Configuration
 -----------------------
-A description of the steps required to customize the extension, such as a giving the library a name,
-adjusting the extension configuration paths based on the new library name, editing the entry symbol,
-and renaming the library_init function.
+A description of the steps required to customize the extension:
+
+* Change the library name
+* Edit the entry symbol to reflect the new library name
+* Adjust extension paths to reflect new the library name
+* Edit the initialization function signature with the new entry symbol
 
 CMake Configuration
 ============================
@@ -125,7 +128,8 @@ systems.  To adjust the paths in this section it is easiest to just do a find an
 If the CMakeLists.txt file was altered to generate the lib prefix on systems other than windows,
 find "``EXTENSION-NAME``" and replace with the actual library name like "``cooldemo``".
 
-Otherwise find "``libEXTENSION-NAME``" and replace it with the library name.
+Otherwise find "``libEXTENSION-NAME``" and replace it with the library name, this will fix the non windows names.
+Now find "``EXTENSION-NAME``" and replace it with the library name to fix the rest.
 
 Change File Name
 ^^^^^^^^^^^^^^^^
@@ -206,8 +210,7 @@ The method in the example extension:
    }
 
 The extension currently registers a single class called ``ExampleClass``, at the scene initialization level.
-The example class defines a method called "``print_type``"
-which takes a variant as an argument, and prints the variant's type.
+The example class implements a function called "``print_type``" :
 
 .. code:: cpp
 
@@ -229,8 +232,7 @@ The script is pretty simple:
        example.print_type(example)
 
 When the scene reaches the ``_ready()`` state, the example class object is instantiated in the standard way,
-it then calls the ``print_type`` function passing itself as the argument, which means the ``ExampleClass``
-has a variant type of 24.
+it then calls the ``print_type`` function passing itself as the argument.
 
 Un-Initialization
 ^^^^^^^^^^^^^^^^^
