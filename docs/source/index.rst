@@ -23,5 +23,6 @@ Requirements:
    godot-cpp/configuration
    godot-cpp/variables
    ide/kate
+   appendix/appendix
 
 

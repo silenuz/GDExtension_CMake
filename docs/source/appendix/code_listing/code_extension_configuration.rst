@@ -1,0 +1,38 @@
+Extension Configuration
+-----------------------
+
+Listing 101: CMakeLists.txt (Prefix Generation)
+===============================================
+.. literalinclude:: src/introduction/with_prefix/CMakeLists.txt
+   :language: cmake
+   :linenos:
+   :caption: CMakeLists.txt
+
+Listing 102: CMakeLists.txt (No Prefix Generation)
+==================================================
+.. literalinclude:: src/introduction/without_prefix/CMakeLists.txt
+   :language: cmake
+   :linenos:
+   :caption: CMakeLists.txt
+
+Listing 103: cooldemo.gdextension (With Prefix)
+===============================================
+.. literalinclude:: src/introduction/with_prefix/cooldemo.gdextension
+   :language: ini
+   :linenos:
+   :caption: cooldemo.gdextension
+
+
+Listing 104: cooldemo.gdextension (No Prefix)
+=============================================
+.. literalinclude:: src/introduction/without_prefix/cooldemo.gdextension
+   :language: ini
+   :linenos:
+   :caption: cooldemo.gdextension
+
+Listing 105: register_types.cpp
+===============================
+.. literalinclude:: src/introduction/register_types.cpp
+   :language: cpp
+   :linenos:
+   :caption: register_types.cpp
