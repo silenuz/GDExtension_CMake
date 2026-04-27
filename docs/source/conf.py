@@ -13,7 +13,7 @@ import os
 project = 'GDExtensionCMakeGuide'
 copyright = '2026, Silenuz Nowan'
 author = 'Silenuz Nowan'
-release = '0.1'
+release = '0.2'
 
 # -- General configuration ---------------------------------------------------
 needs_sphinx = "8.1"
