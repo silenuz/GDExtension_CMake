@@ -262,4 +262,39 @@ This function is empty as the extension currently requires no cleanup.
     * Static Variable Issues: Do not use static variables with Godot types (like RID or Node) in your classes, as they may be destroyed after the GDExtension system has already shut down.
 
 
+Build and Test
+==============
+
+Now it's time to build and test the library with the new configuration.
+
+Build
+^^^^^
+
+Compile the new version of the extension, with the configuration changes
+
+.. code:: shell
+
+   cmake --build cmake-build-debug
+
+Test
+^^^^
+The project can now be tested by launching the Godot editor and importing the project folder, or alternatively
+the command line can be used to launch the Godot editor and load the project.  To do so the command is
+
+``/path/to/godot.executable --editor --path /absolute/path/to/project``
+
+After the project is loaded in the editor, the extension can be tested by running the main scene
+
+Source Code
+===========
+
+:ref:`coderef101`
+
+:ref:`coderef102`
+
+:ref:`coderef103`
+
+:ref:`coderef104`
+
+:ref:`coderef105`
 
