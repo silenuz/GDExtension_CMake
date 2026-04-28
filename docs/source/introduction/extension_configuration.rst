@@ -160,7 +160,7 @@ custom nodes, resources, and singletons through 3 key functions:
 Rename Init Function
 ^^^^^^^^^^^^^^^^^^^^
 
-Open ``src/register_types.cpp`` and scroll to near the bottom where the initialization function is, it looks like this:
+Open ``src/register_types.cpp`` and scroll to near the bottom where the main entry function is, it looks like this:
 
 .. code:: cpp
 
