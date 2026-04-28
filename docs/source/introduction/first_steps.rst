@@ -19,7 +19,7 @@ created from the template is called mycooldemo:
 
     git clone https://github.com/account/mycooldemo.git --recursive
 
-Once cloned, you will have a project that is composed as follows:
+The `Godot CPP Template`_ is organized as follows:
 
 .. list-table::
    :widths: 20 50
