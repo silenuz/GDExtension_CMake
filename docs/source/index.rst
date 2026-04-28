@@ -24,7 +24,7 @@ Requirements:
    introduction/introduction
    godot-cpp/configuration
    godot-cpp/variables
-   ide/kate
+   ide/ide
    appendix/appendix
 
 
