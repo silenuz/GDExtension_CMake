@@ -13,7 +13,6 @@ First log into log in to GitHub, and then go to the
 "Use this template" button at the top of the repository page.
 
 This will let you create a copy of the repository with a clean git history.
-
 Next clone the repository that was just created with the --recursive flag.  For example if the repository that was
 created from the template is called mycooldemo:
 
@@ -51,20 +50,21 @@ Once cloned, you will have a project that is composed as follows:
 Initial Configuration
 =====================
 
-After cloning the repository cmake has to be configured. Open a terminal in the topmost level of the project that
-was just cloned,  for example mycooldemo and execute the following:
+After cloning the repository `cmake <https://cmake.org/cmake/help/latest/>`_ has to be configured. Open a terminal in the topmost level of the git project that
+was just cloned, for example mycooldemo and execute cmake with the `options <https://cmake.org/cmake/help/latest/manual/cmake.1.html#options>`_
+listed below:
 
 .. code:: shell
 
-   cmake -G Ninja -S . -B cmake-build-debug
+   cmake -S . -B cmake-build-debug -G Ninja
 
-| The value after the ``-B`` argument is the name of the folder that
-  will be created as the cmake build folder, and can be referred to as
-  ``${CMAKE_BINARY_DIR}`` in the ``CMakeLists.txt`` file.
+* ``-S`` specifies the source folder as the current folder
+* ``-B`` specifies the build folder as ``cmake-build-debug``,
+    can be referred to as ``${CMAKE_BINARY_DIR}`` in the ``CMakeLists.txt`` file
+* ``-G`` specifies the generator as `Ninja <https://ninja-build.org/manual.html>`_
 
-The build directory is specified so that generated files do not clutter the source tree with build artifacts.
-
-The value after the ``-G`` argument is the generator to be used, which in the above example is Ninja.
+The build directory is specified so that generated files do not clutter the source tree with build
+artifacts.
 
 ..
     .. note::
@@ -79,12 +79,14 @@ The value after the ``-G`` argument is the generator to be used, which in the ab
 
         and look for the generators array, it will contain the generators available to cmake.
 
-If the generator is Ninja or Makefiles you can use the configure target to also generate a ``compile_commands.json`` in the build folder
+If the  `generator <https://cmake.org/cmake/help/latest/manual/cmake-generators.7.html>`_
+is `Ninja <https://ninja-build.org/manual.html>`_ or `Makefiles <https://cmake.org/cmake/help/latest/manual/cmake-generators.7.html#makefile-generators>`_
+you can use the configure target to also generate a ``compile_commands.json`` in the build folder
 that can be used with clangd.
 
 .. code:: shell
 
-   cmake -G Ninja -S . -B cmake-build-debug -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+   cmake -S . -B cmake-build-debug -G Ninja -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
 
 Initial Build
 =============
@@ -163,3 +165,5 @@ After the project is loaded in the editor, the extension can be tested by runnin
 ::
 
    Type: 24
+
+References:
