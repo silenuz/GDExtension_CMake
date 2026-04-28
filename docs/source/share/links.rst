@@ -10,3 +10,4 @@
 .. _SCons: https://scons.org/
 .. _CMake variable: https://cmake.org/cmake/help/latest/manual/cmake-variables.7.html
 .. _CMAKE_EXPORT_COMPILE_COMMANDS: https://cmake.org/cmake/help/latest/variable/CMAKE_EXPORT_COMPILE_COMMANDS.html
+.. _.gdextension: https://docs.godotengine.org/en/stable/tutorials/scripting/gdextension/gdextension_file.html#

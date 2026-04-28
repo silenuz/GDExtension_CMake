@@ -36,7 +36,7 @@ The `Godot CPP Template`_ is organized as follows:
        #. source code for the extension
        #. empty custom build profile
        #. `CMake`_ configuration file
-       #. used by `SCons` to build the library for the extension (not used by cmake)
+       #. used by `SCons`_ to build the library for the extension (not used by cmake)
 
 .. note::
     If the repository was cloned without the ``--recursive`` flag, then the godot-cpp folder will be empty.  To remedy
@@ -124,23 +124,19 @@ The bin folder of the project contains the output of the build.
 
           Project Bin Folder
      - #. compiled libraries for target systems indicated by folder name
-       #. configuration file for the extension
+       #. `.gdextension`_ configuration file
 
 
-Reviewing the Build
+Verify the Build
 ^^^^^^^^^^^^^^^^^^^
 
-Opening the folder of the target system that matches the current build platform should reveal the library
-file that was built above.  For example on linux, open the linux folder to see the compiled library.
+In the Godot project's bin folder, open the folder corresponding to the target build system.
+There should be a library created there that will be named ``EXTENSION-NAME.linux.template_debug.x86_64.so``.
 
-On linux the file will be named something like ``EXTENSION-NAME.linux.template_debug.x86_64.so``
-
-Now open the configuration file for the extension, ``example.gdextension``
+Now open ``example.gdextension`` which is the configuration file for the extension.
 
 Look for the block of paths for the current platform, and check that the extension path corresponds to the correct name
-for the compiled library.  For example:
-
-.. image:: img/config_linux.png
+for the compiled library.
 
 If the path name in the configuration file is different than the actual path, for example if the configuration
 file lists
@@ -150,8 +146,9 @@ file lists
     "./linux/libEXTENSION-NAME.linux.template_debug.x86_64.so"
 
 And the actual library is named ``EXTENSION-NAME.linux.template_debug.x86_64.so`` then the path in the configuration
-will have to be adjusted to account for the lack of the ``lib`` prefix.  A failure to do so will result in a file
-not found error when the project is opened in Godot.
+will have to be adjusted to account for the lack of the ``lib`` prefix.
+
+Failure to do so will result in a file not found error when the project is opened in Godot.
 
 Testing the Build
 ^^^^^^^^^^^^^^^^^

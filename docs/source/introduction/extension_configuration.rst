@@ -87,7 +87,7 @@ Next edit the original block and change ``PREFIX ""`` with ``PREFIX "${LIBPREFIX
 
 Edit Configuration File
 =======================
-The `.gdextension <https://docs.godotengine.org/en/stable/tutorials/scripting/gdextension/gdextension_file.html#>`_ file in your project contains the instructions for how to load the GDExtension.
+The `.gdextension`_ file in your project contains the instructions for how to load the GDExtension.
 The instructions are separated into specific sections.
 
 Now that cmake compiles the library with a different name, in order for Godot to be able to load the extension, the library's entry
@@ -148,7 +148,7 @@ Source Code Configuration
 
 The last step is to edit the source code in ``src/register_types.cpp``, which is a core file in a GDExtension project,
 and is used to initialize and register C++ classes with the Godot engine.  It serves as the entry point for Godot to recognize
-custom nodes, resources, and singletons through 3 key functions:
+custom nodes, resources, and singletons through three key functions:
 
 * Initialization Function:
     name: initialize_gdextension_types. It is called by Godot at different initialization levels (e.g., Core, Servers, Scene, Editor). You use ClassDB::register_class<YourClassName>() here to expose your classes to Godot.

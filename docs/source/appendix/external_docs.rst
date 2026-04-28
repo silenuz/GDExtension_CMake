@@ -1,5 +1,5 @@
-External Docs
--------------
+External References
+-------------------
 The external documentation sources referenced in this document.
 
 CMake:
