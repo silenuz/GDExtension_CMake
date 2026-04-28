@@ -1,5 +1,4 @@
-External Links
---------------
+
 
 .. _CMake: https://cmake.org/cmake/help/latest/
 .. _Ninja: https://ninja-build.org/manual.html
@@ -12,21 +11,3 @@ External Links
 .. _SCons: https://scons.org/
 .. _CMake variable: https://cmake.org/cmake/help/latest/manual/cmake-variables.7.html
 .. _CMAKE_EXPORT_COMPILE_COMMANDS: https://cmake.org/cmake/help/latest/variable/CMAKE_EXPORT_COMPILE_COMMANDS.html
-
-CMake:
-------
-* `CMake`_
-* `CMake generator`_
-* `CMake options`_
-* `CMake variable`_
-* `CMAKE_EXPORT_COMPILE_COMMANDS`_
-
-Godot:
-------
-
-
-
-Other:
-------
-* `Ninja`_
-* `SCons`_

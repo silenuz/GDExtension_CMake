@@ -5,4 +5,4 @@ Appendix
     :maxdepth: 2
 
     code_listing/code_listing
-    ../share/links
+    external_docs
