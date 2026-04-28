@@ -50,8 +50,8 @@ Once cloned, you will have a project that is composed as follows:
 Initial Configuration
 =====================
 
-After cloning the repository `cmake <https://cmake.org/cmake/help/latest/>`_ has to be configured. Open a terminal in the topmost level of the git project that
-was just cloned, for example mycooldemo and execute cmake with the `options <https://cmake.org/cmake/help/latest/manual/cmake.1.html#options>`_
+After cloning the repository `CMake`_ has to be configured. Open a terminal in the topmost level of the git project that
+was just cloned, for example mycooldemo and execute cmake with the `CMake Options`_
 listed below:
 
 .. code:: shell
@@ -61,7 +61,7 @@ listed below:
 * ``-S`` specifies the source folder as the current folder
 * ``-B`` specifies the build folder as ``cmake-build-debug``,
     can be referred to as ``${CMAKE_BINARY_DIR}`` in the ``CMakeLists.txt`` file
-* ``-G`` specifies the generator as `Ninja <https://ninja-build.org/manual.html>`_
+* ``-G`` specifies the `CMake Generator`_ as `Ninja`_
 
 The build directory is specified so that generated files do not clutter the source tree with build
 artifacts.
@@ -79,8 +79,8 @@ artifacts.
 
         and look for the generators array, it will contain the generators available to cmake.
 
-If the  `generator <https://cmake.org/cmake/help/latest/manual/cmake-generators.7.html>`_
-is `Ninja <https://ninja-build.org/manual.html>`_ or `Makefiles <https://cmake.org/cmake/help/latest/manual/cmake-generators.7.html#makefile-generators>`_
+If the  `CMake Generator`_
+is `Ninja`_ or `Makefiles <https://cmake.org/cmake/help/latest/manual/cmake-generators.7.html#makefile-generators>`_
 you can use the configure target to also generate a ``compile_commands.json`` in the build folder
 that can be used with clangd.
 
@@ -167,3 +167,7 @@ After the project is loaded in the editor, the extension can be tested by runnin
    Type: 24
 
 References:
+
+`CMake`_
+
+.. include:: ../share/links.rst
