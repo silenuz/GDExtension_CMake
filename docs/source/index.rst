@@ -3,6 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+Version: Rough Draft 02 (28/04/2026)
+
 CMake Guide For GDExtensions
 ----------------------------
 A less then comprehensive guide to creating a Godot GDExtension using cmake.
