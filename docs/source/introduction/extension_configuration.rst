@@ -146,9 +146,16 @@ replace the word example with the library name like this "``cooldemo.gdextension
 Source Code Configuration
 =========================
 
-The last step is to edit the source code in ``src/register_types.cpp``, this file is responsible for initializing
-the extension and registering objects in the extension with the Godot engine.  Lastly it is also responsible
-for any steps required when uninitializing the extension.
+The last step is to edit the source code in ``src/register_types.cpp``, which is a core file in a GDExtension project,
+and is used to initialize and register C++ classes with the Godot engine.  It serves as the entry point for Godot to recognize
+custom nodes, resources, and singletons through 3 key functions:
+
+* Initialization Function:
+    name: initialize_gdextension_types. It is called by Godot at different initialization levels (e.g., Core, Servers, Scene, Editor). You use ClassDB::register_class<YourClassName>() here to expose your classes to Godot.
+* Deinitialization Function:
+    name: uninitialize_gdextension_types. This cleans up any memory or resources allocated during initialization.
+* Entry Point (extern "C"):
+    The main entry function (e.g., example_library_init) that Godot calls when loading the dynamic library. It sets up the binding between your C++ code and the GDExtension interface.
 
 Rename Init Function
 ^^^^^^^^^^^^^^^^^^^^

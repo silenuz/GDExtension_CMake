@@ -1,6 +1,8 @@
 Introduction
 ------------
 
+Version: Rough Draft 02 (28/04/2026)
+
 The `godot-cpp-template <https://github.com/godotengine/godot-cpp-template>`_ is a quickstart template for GDExtension
 development with `Godot <https://godotengine.org/>`_ .
 
