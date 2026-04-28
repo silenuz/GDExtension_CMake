@@ -3,7 +3,8 @@ External Docs
 The external documentation sources referenced in this document.
 
 CMake:
-------
+======
+
 * `CMake`_
 * `CMake generator`_
 * `CMake options`_
@@ -11,12 +12,12 @@ CMake:
 * `CMAKE_EXPORT_COMPILE_COMMANDS`_
 
 Godot:
-------
+======
 
 
 
 Other:
-------
+======
 * `Ninja`_
 * `SCons`_
 

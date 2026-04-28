@@ -1,5 +1,4 @@
 
-
 .. _CMake: https://cmake.org/cmake/help/latest/
 .. _Ninja: https://ninja-build.org/manual.html
 .. _CMake options: https://cmake.org/cmake/help/latest/manual/cmake.1.html#options
