@@ -13,6 +13,10 @@ CMake:
 
 Godot:
 ======
+* `Godot CPP Template`_
+* `Godot CPP Bindings`_
+* `.gdextension`_ file
+* Add `GDExtension Documentation`_
 
 
 
