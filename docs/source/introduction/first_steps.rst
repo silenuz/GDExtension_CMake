@@ -1,15 +1,14 @@
 First Steps
 -----------
 An explanation of the initial steps required to acquire the official
-`godot-cpp template <https://github.com/godotengine/godot-cpp-template>`_
+`Godot CPP Template`_
 and create a repository from it.  Further instruction follows in regards to cloning the repository, and
 building the template's example project.
 
 Clone Repository
 ================
 
-First log into log in to GitHub, and then go to the
-`official template repository <https://github.com/godotengine/godot-cpp-template>`_  and click the green
+First log into log in to GitHub, and then go to the `Godot CPP Template`_ and click the green
 "Use this template" button at the top of the repository page.
 
 This will let you create a copy of the repository with a clean git history.
@@ -31,13 +30,13 @@ Once cloned, you will have a project that is composed as follows:
 
           Initial Repository Content
      - #. bin folder
-       #. class documentation for classes created for the extension
-       #. godot-cpp bindings for creating the extension
-       #. example project
+       #. `GDExtension Documentation`_ for classes created for the extension
+       #. `Godot CPP Bindings`_ for creating the extension
+       #. example `Godot`_ project
        #. source code for the extension
        #. empty custom build profile
-       #. cmake configuration file
-       #. main file that is used by scons to build the project (not used by cmake)
+       #. `CMake`_ configuration file
+       #. used by `SCons` to build the library for the extension (not used by cmake)
 
 .. note::
     If the repository was cloned without the ``--recursive`` flag, then the godot-cpp folder will be empty.  To remedy
@@ -81,12 +80,13 @@ artifacts.
 
 If the  `CMake Generator`_
 is `Ninja`_ or `Makefiles <https://cmake.org/cmake/help/latest/manual/cmake-generators.7.html#makefile-generators>`_
-you can use the configure target to also generate a ``compile_commands.json`` in the build folder
-that can be used with clangd.
+you can use the configure target to also generate a ``compile_commands.json`` in the build folder. To do so the
+`CMAKE_EXPORT_COMPILE_COMMANDS`_ `cmake variable`_ is added to the configure command with a value of ``ON``.
 
 .. code:: shell
 
    cmake -S . -B cmake-build-debug -G Ninja -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+
 
 Initial Build
 =============
@@ -167,7 +167,8 @@ After the project is loaded in the editor, the extension can be tested by runnin
    Type: 24
 
 References:
+===========
 
-`CMake`_
+
 
 .. include:: ../share/links.rst
