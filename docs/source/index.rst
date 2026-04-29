@@ -26,5 +26,6 @@ Requirements:
    godot-cpp/variables
    ide/ide
    appendix/appendix
+   glossary
 
 

@@ -35,7 +35,7 @@ The `Godot CPP Template`_ is organized as follows:
        #. example `Godot`_ project
        #. source code for the extension
        #. empty custom build profile
-       #. `CMake`_ configuration file
+       #. `CMake`_ :term:`cmake` configuration file
        #. used by `SCons`_ to build the library for the extension (not used by cmake)
 
 .. note::
