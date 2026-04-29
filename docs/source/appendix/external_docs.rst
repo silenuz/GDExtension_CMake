@@ -26,6 +26,7 @@ Other
 =====
 * `Ninja`_
 * `SCons`_
+* `clangd`_
 
 
 .. include:: ../share/links.rst

@@ -16,3 +16,4 @@
 
 .. _Ninja: https://ninja-build.org/manual.html
 .. _SCons: https://scons.org/
+.. _clangd: https://clangd.llvm.org/

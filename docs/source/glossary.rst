@@ -115,9 +115,12 @@ Definition of miscellaneous terms
 
    compile commands
    compile_commands.json
-        a JSON-formatted compilation database that specifies exactly how each source file in a C or C++ project should be compiled.
+        A JSON-formatted compilation database that specifies exactly how each source file in a C or C++ project should be compiled.
         It acts as a standardized "map" that allows external tools—like Language Servers (LSP), linters, and static analyzers—to understand
         your project's structure without needing to execute the entire build system
+
+   clangd
+        A language server that can work with many editors
 
 
 .. include:: ./share/links.rst

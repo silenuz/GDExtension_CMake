@@ -80,8 +80,9 @@ artifacts.
 
 If the :term:`Cmake` :term:`generator` is :term:`Ninja`
 or `Makefiles <https://cmake.org/cmake/help/latest/manual/cmake-generators.7.html#makefile-generators>`_
-you can use the configure target to also generate a :term:`compile_commands.json` in the :term:`build directory`. To do so the
-:term:`CMAKE_EXPORT_COMPILE_COMMANDS` :term:`CMake` :term:`variable` is added to the configure command with a value of ``ON``.
+you can use the configure target to also generate a :term:`compile_commands.json` in the :term:`build directory` for use
+with :term:`clangd`. To do so the :term:`CMAKE_EXPORT_COMPILE_COMMANDS` :term:`CMake` :term:`variable` is added to
+the configure command with a value of ``ON``.
 
 .. code:: shell
 
