@@ -11,6 +11,7 @@
 .. _Godot CPP Bindings: https://github.com/godotengine/godot-cpp/tree/6388e26dd8a42071f65f764a3ef3d9523dda3d6e
 .. _GDExtension Documentation: https://docs.godotengine.org/en/stable/tutorials/scripting/cpp/gdextension_docs_system.html
 .. _.gdextension: https://docs.godotengine.org/en/stable/tutorials/scripting/gdextension/gdextension_file.html#
+.. _GDExtension system: https://docs.godotengine.org/en/stable/tutorials/scripting/gdextension/index.html
 
 .. _Ninja: https://ninja-build.org/manual.html
 .. _SCons: https://scons.org/
