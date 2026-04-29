@@ -1,7 +1,7 @@
 First Steps
 -----------
 An explanation of the initial steps required to acquire the official
-`Godot CPP Template`_
+:term:`godot cpp template`
 and create a repository from it.  Further instruction follows in regards to cloning the repository, and
 building the template's example project.
 

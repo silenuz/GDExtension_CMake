@@ -31,16 +31,22 @@ Definition of terms used in regards to the CMake build system.
        If enabled, generates a compile_commands.json file containing the exact compiler calls for all translation units of the project in machine-readable form.
        See `CMAKE_EXPORT_COMPILE_COMMANDS`_ for more information.
 
+   option
+       A command used in scripts to define user-configurable settings, as well as the command-line flags used to pass these settings during the build process.
+       See `CMake options`_ for more information.
+
 GDExtension
 ===========
 Definition of terms specific to GDExtension development
+
 .. glossary::
    :sorted:
 
    godot cpp template
    godot-cpp-template
-   Quickstart template for GDExtension development with Godot and C++
-   `Github Repository <Godot CPP Template_>`__
+       Quickstart template for GDExtension development with Godot and C++
+       `Github Repository <Godot CPP Template_>`__
+
 
    GDExtension
        GDExtension is a Godot-specific technology that lets the engine interact with native shared libraries at runtime. You can use it to run native code without compiling it with the engine.
