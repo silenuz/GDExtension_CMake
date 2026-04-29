@@ -11,6 +11,7 @@ CMake
 * `CMake variable`_ (Variable Description)
 * `CMake variables`_ (List of CMake variables)
 * `CMAKE_EXPORT_COMPILE_COMMANDS`_
+* `CMAKE_BINARY_DIR`_
 
 Godot
 =====

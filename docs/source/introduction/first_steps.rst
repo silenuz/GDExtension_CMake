@@ -29,7 +29,7 @@ The :term:`godot cpp template` is organized as follows:
           :width: 100%
 
           Initial Repository Content
-     - #. bin folder
+     - #. bin directory
        #. :term:`extension documentation` for classes in the extension
        #. :term:`godot cpp` bindings for the extension
        #. example :term:`Godot` project
@@ -39,8 +39,8 @@ The :term:`godot cpp template` is organized as follows:
        #. used by :term:`SCons` to build the library for the extension (not used by cmake)
 
 .. note::
-    If the repository was cloned without the ``--recursive`` flag, then the godot-cpp folder will be empty.  To remedy
-    this open the repository folder in a terminal and execute the following;
+    If the repository was cloned without the ``--recursive`` flag, then the godot-cpp directory will be empty.  To remedy
+    this open the repository directory in a terminal and execute the following;
 
     .. code::
 
@@ -57,12 +57,12 @@ listed below:
 
    cmake -S . -B cmake-build-debug -G Ninja
 
-* ``-S`` specifies the source folder as the current folder
-* ``-B`` specifies the build folder as ``cmake-build-debug``,
+* ``-S`` specifies the source directory as the current directory
+* ``-B`` specifies the :term:`build directory` as ``cmake-build-debug``,
     can be referred to as ``${CMAKE_BINARY_DIR}`` in the ``CMakeLists.txt`` file
 * ``-G`` specifies the :term:`cmake` :term:`generator` :term:`Ninja`
 
-The build directory is specified so that generated files do not clutter the source tree with build
+The :term:`build directory` is specified so that generated files do not clutter the source tree with build
 artifacts.
 
 ..
@@ -80,7 +80,7 @@ artifacts.
 
 If the :term:`Cmake` :term:`generator` if :term:`Ninja`
 or `Makefiles <https://cmake.org/cmake/help/latest/manual/cmake-generators.7.html#makefile-generators>`_
-you can use the configure target to also generate a ``compile_commands.json`` in the build folder. To do so the
+you can use the configure target to also generate a ``compile_commands.json`` in the :term:`build directory`. To do so the
 :term:`CMAKE_EXPORT_COMPILE_COMMANDS` :term:`CMake` :term:`variable` is added to the configure command with a value of ``ON``.
 
 .. code:: shell
@@ -91,15 +91,15 @@ you can use the configure target to also generate a ``compile_commands.json`` in
 Initial Build
 =============
 
-Once configured the extension can be built by specifying a target of build followed by the name
-of the cmake build folder:
+Once configured the :term:`extension` can be built by specifying a target of build followed by the name
+of the :term:`cmake` :term:`build directory`:
 
 .. code:: shell
 
    cmake --build cmake-build-debug
 
 If the build command worked, you should have a new library file for the
-target system in the project folder.  The example project folder contains the following:
+target system in the :term:`Godot` project directory.  The example :term:`Godot` project directory is organized as follows:
 
 .. list-table::
    :widths: 20 50
@@ -108,12 +108,12 @@ target system in the project folder.  The example project folder contains the fo
    * - .. figure:: img/project_content.png
           :width: 100%
 
-          Project Folder
+          Godot Project directory
      - #. contains compiled library and extension configuration
        #. standard :term:`Godot` project.
 
 
-The bin folder of the project contains the output of the build.
+The bin directory of the :term:`Godot` project contains the output of the build.
 
 .. list-table::
    :widths: 20 50
@@ -122,15 +122,15 @@ The bin folder of the project contains the output of the build.
    * - .. figure:: img/project_bin.png
           :width: 100%
 
-          Project Bin Folder
-     - #. compiled libraries for target systems indicated by folder name
+          Project Bin directory
+     - #. compiled libraries for target systems indicated by directory name
        #. :term:`.gdextension file`
 
 
 Verify the Build
 ^^^^^^^^^^^^^^^^^^^
 
-In the :term:`Godot` project's bin folder, open the folder corresponding to the target build system.
+In the :term:`Godot` project's bin directory, open the directory corresponding to the target build system.
 There should be a library created there that will be named ``EXTENSION-NAME.linux.template_debug.x86_64.so``.
 
 Now open ``example.gdextension`` which is the configuration file for the extension.
@@ -152,12 +152,12 @@ Failure to do so will result in a file not found error when the project is opene
 
 Testing the Build
 ^^^^^^^^^^^^^^^^^
-The project can now be tested by launching the Godot editor and importing the project folder, or alternatively
-the command line can be used to launch the Godot editor and load the project.  To do so the command is
+The :term:`extension` can now be tested by launching the :term:`Godot` editor and importing the :term:`Godot` project directory, or alternatively
+the command line can be used to launch the :term:`Godot` editor and load the project.  To do so the command is
 
-``/path/to/godot.executable --editor --path /absolute/path/to/project``
+``/path/to/godot.executable --editor --path /absolute/path/to/godot_project_folder``
 
-After the project is loaded in the editor, the extension can be tested by running the main scene which should print the following to the console.
+Once the project is loaded in the editor, the :term:`extension` can be tested by running the main scene, which should print the following to the console.
 
 ::
 
