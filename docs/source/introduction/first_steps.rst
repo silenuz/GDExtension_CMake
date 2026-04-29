@@ -32,7 +32,7 @@ The :term:`godot cpp template` is organized as follows:
      - #. bin directory
        #. :term:`extension documentation` for classes in the extension
        #. :term:`godot cpp` bindings for the extension
-       #. example :term:`Godot` project
+       #. example :term:`Godot project`
        #. source code for the extension
        #. empty custom build profile
        #. :term:`cmake` configuration file
@@ -49,7 +49,7 @@ The :term:`godot cpp template` is organized as follows:
 Initial Configuration
 =====================
 
-After cloning the repository :term:`CMake` has to be configured. Open a terminal in the topmost level of the git project that
+After cloning the repository :term:`CMake` has to be configured. Open a terminal in the topmost level of the repository that
 was just cloned, for example mycooldemo and execute :term:`cmake` with the :term:`option`'s
 listed below:
 
@@ -100,7 +100,7 @@ of the :term:`cmake` :term:`build directory`:
    cmake --build cmake-build-debug
 
 If the build command worked, you should have a new library file for the
-target system in the :term:`Godot` project directory.  The example :term:`Godot` project directory is organized as follows:
+target system in the :term:`Godot project` directory.  The example :term:`Godot project` directory is organized as follows:
 
 .. list-table::
    :widths: 20 50
@@ -114,7 +114,7 @@ target system in the :term:`Godot` project directory.  The example :term:`Godot`
        #. standard :term:`Godot` project.
 
 
-The bin directory of the :term:`Godot` project contains the output of the build.
+The bin directory of the :term:`Godot project` contains the output of the build.
 
 .. list-table::
    :widths: 20 50
@@ -131,7 +131,7 @@ The bin directory of the :term:`Godot` project contains the output of the build.
 Verify the Build
 ^^^^^^^^^^^^^^^^^^^
 
-In the :term:`Godot` project's bin directory, open the directory corresponding to the target build system.
+In the :term:`Godot project`'s bin directory, open the directory corresponding to the target build system.
 There should be a library created there that will be named ``EXTENSION-NAME.linux.template_debug.x86_64.so``.
 
 Now open ``example.gdextension`` which is the :term:`configuration file` for the :term:`extension`.
@@ -156,12 +156,12 @@ then the name of the library will have to be adjusted to account for any differe
 
 Testing the Build
 ^^^^^^^^^^^^^^^^^
-The :term:`extension` can now be tested by launching the :term:`Godot` editor and importing the :term:`Godot` project directory, or alternatively
-the command line can be used to launch the :term:`Godot` editor and load the project.  To do so the command is
+The :term:`extension` can now be tested by launching the :term:`Godot` editor and importing the :term:`Godot project` directory, or alternatively
+the command line can be used to launch the :term:`Godot` editor and load the :term:`project`.  To do so the command is
 
-``/path/to/godot.executable --editor --path /absolute/path/to/godot_project_folder``
+``/path/to/godot.executable --editor --path /absolute/path/to/Godot project``
 
-Once the project is loaded in the editor, the :term:`extension` can be tested by running the main scene, which should print the following to the console.
+Once the :term:`project` is loaded in the editor, the :term:`extension` can be tested by running the main scene, which should print the following to the console.
 
 ::
 
