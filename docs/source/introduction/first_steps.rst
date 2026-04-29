@@ -132,15 +132,15 @@ Verify the Build
 ^^^^^^^^^^^^^^^^^^^
 
 In the :term:`Godot project`'s bin directory, open the directory corresponding to the target build system.
-There should be a library created there that will be named ``EXTENSION-NAME.linux.template_debug.x86_64.so``.
+There should be a library created there that will be named ``EXTENSION-NAME.target.template_debug.x86_64.so``.
 
-Now open ``example.gdextension`` which is the :term:`configuration file` for the :term:`extension`.
+Now open ``example.gdextension`` which is the :term:`.gdextension file` for the :term:`extension`.
 
 Look for the block of paths for the current platform, and check that the :term:`extension`'s library path corresponds to the correct name
 for the compiled library.
 
-If the path name in the :term:`configuration file` is different than the actual path, for example if the
-:term:`configuration file` lists
+If the path name in the :term:`.gdextension file` is different than the actual path, for example if the
+:term:`.gdextension file` lists
 
 .. code::
 

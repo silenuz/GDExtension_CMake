@@ -67,7 +67,6 @@ Definition of terms specific to GDExtension development
        GDExtension is a Godot-specific technology that lets the engine interact with native shared libraries at runtime. You can use it to run native code without compiling it with the engine.
        See `GDExtension system`_ for more information.
 
-   configuration file
    gdextension file
    .gdextension file
        The .gdextension file in your project contains the instructions for how to load the GDExtension. The instructions are separated into specific sections.
