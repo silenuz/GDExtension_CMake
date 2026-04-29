@@ -168,7 +168,7 @@ Once the project is loaded in the editor, the :term:`extension` can be tested by
 
 .. hint::
 
-    If the :term:`Godot` project throws a file not found error when loaded in the:term:`Godot` editor
+    If the :term:`Godot` project throws a file not found error when loaded in the :term:`Godot` editor
     check the :term:`.gdextension file` and ensure the library name is correct.
 
 
