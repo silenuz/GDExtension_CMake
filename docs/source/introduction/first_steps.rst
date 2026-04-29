@@ -133,22 +133,25 @@ Verify the Build
 In the :term:`Godot` project's bin directory, open the directory corresponding to the target build system.
 There should be a library created there that will be named ``EXTENSION-NAME.linux.template_debug.x86_64.so``.
 
-Now open ``example.gdextension`` which is the configuration file for the extension.
+Now open ``example.gdextension`` which is the :term:`configuration file` for the :term:`extension`.
 
-Look for the block of paths for the current platform, and check that the extension path corresponds to the correct name
+Look for the block of paths for the current platform, and check that the :term:`extension`'s library path corresponds to the correct name
 for the compiled library.
 
-If the path name in the configuration file is different than the actual path, for example if the configuration
-file lists
+If the path name in the :term:`configuration file` is different than the actual path, for example if the
+:term:`configuration file` lists
 
 .. code::
 
-    "./linux/libEXTENSION-NAME.linux.template_debug.x86_64.so"
+    "libEXTENSION-NAME.linux.template_debug.x86_64.so"
 
-And the actual library is named ``EXTENSION-NAME.linux.template_debug.x86_64.so`` then the path in the configuration
-will have to be adjusted to account for the lack of the ``lib`` prefix.
+And the actual library is named
 
-Failure to do so will result in a file not found error when the project is opened in :term:`Godot`.
+.. code::
+
+    "EXTENSION-NAME.linux.template_debug.x86_64.so"
+
+then the name of the library will have to be adjusted to account for any differences.
 
 Testing the Build
 ^^^^^^^^^^^^^^^^^
@@ -163,8 +166,11 @@ Once the project is loaded in the editor, the :term:`extension` can be tested by
 
    Type: 24
 
-References:
-===========
+.. hint::
+
+    If the :term:`Godot` project throws a file not found error when loaded in the:term:`Godot` editor
+    check the :term:`.gdextension file` and ensure the library name is correct.
+
 
 
 
