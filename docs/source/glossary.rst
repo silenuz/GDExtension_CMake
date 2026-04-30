@@ -50,7 +50,7 @@ Definition of terms used in regards to the CMake build system.
        The target platform is the computer the compiled :term:`extension` is being built for, based on operating system
        and processor architecture.
 
-       Each potential target platform for the :term:`extension` has a folder in the :term:`projects` bin directory.
+       Each potential target platform for the :term:`extension` has a folder in the :term:`project`'s bin directory.
 
    host platform
        The host platform is the computer that is compiling the binary output.
@@ -103,7 +103,7 @@ Definition of terms specific to GDExtension development
 
 
    project
-       The example :term:`Godot` project, which in the initial download of the :term:`godot cpp template` is simply called project.
+       The example :term:`Godot` project, which in the initial download of the :term:`template` is simply called project.
        The sub directory bin contains the :term:`.gdextension file` as well as a sub directory for each :term:`target platform`.
        By default the compiled library for the :term:`extension` will be found in the folder named for the :term:`target platform`.
 

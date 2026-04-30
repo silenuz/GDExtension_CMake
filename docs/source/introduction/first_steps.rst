@@ -162,7 +162,7 @@ then the name of the :term:`library` will have to be adjusted in the :term:`.gde
 
 Test
 ^^^^
-The :term:`extension` can now be tested by launching the :term:`Godot` editor and importing the :term:`Godot project` directory, or alternatively
+The :term:`extension` can now be tested by launching the :term:`Godot` editor and importing the :term:`project` directory, or alternatively
 the command line can be used to launch the :term:`Godot` editor and load the :term:`project`.  To do so the command is
 
 ``/path/to/godot.executable --editor --path /absolute/path/to/project``
