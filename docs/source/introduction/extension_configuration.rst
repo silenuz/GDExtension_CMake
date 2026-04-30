@@ -87,7 +87,7 @@ Next edit the original block and change ``PREFIX ""`` with ``PREFIX "${LIBPREFIX
 
 Edit Configuration File
 =======================
-The `.gdextension`_ file in your project contains the instructions for how to load the GDExtension.
+The :term:`.gdextension file` in your project contains the instructions for how to load the GDExtension.
 The instructions are separated into specific sections.
 
 Now that cmake compiles the library with a different name, in order for Godot to be able to load the extension, the library's entry
@@ -100,7 +100,8 @@ Change Entry Symbol
 
 Find the configurations section (it should be near the top) and looks like this:
 
-.. code:: INI
+.. code-block:: INI
+   :emphasize-lines: 3
 
     [configuration]
 
@@ -111,7 +112,8 @@ Find the configurations section (it should be near the top) and looks like this:
 Change the entry symbol from ``example_library_init`` to ``libraryname_library_init``, so for the cooldemo
 library in the example it is changed to this:
 
-.. code:: INI
+.. code-block:: INI
+   :emphasize-lines: 3
 
     [configuration]
 
@@ -178,11 +180,11 @@ Open ``src/register_types.cpp`` and scroll to near the bottom where the main ent
 Now replace the word example in the function definition to be the name chosen as the entry symbol in the gdextension
 configuration file.  For the cooldemo example the original:
 
-``GDExtensionBool GDE_EXPORT example_library_init``
+``example_library_init``
 
 would become:
 
-``GDExtensionBool GDE_EXPORT cooldemo_library_init``
+``cooldemo_library_init``
 
 At this point the extension is properly configured, and can be built and tested,
 however while the file is open, let's examine the other two methods, to see how the extension's
@@ -206,7 +208,8 @@ specifically during the SCENE level to make them available in the editor.
 
 The method in the example extension:
 
-.. code:: cpp
+.. code-block:: cpp
+   :emphasize-lines: 6
 
    void initialize_gdextension_types(ModuleInitializationLevel p_level)
    {
@@ -281,7 +284,7 @@ Compile the new version of the extension, with the configuration changes
 
 .. code:: shell
 
-   cmake --build cmake-build-debug
+   cmake --build cmake-build
 
 Test
 ^^^^

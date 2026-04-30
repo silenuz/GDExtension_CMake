@@ -9,6 +9,7 @@ Listing 101: CMakeLists.txt (Prefix Generation)
    :language: cmake
    :linenos:
    :caption: CMakeLists.txt
+   :emphasize-lines: 8,9,71,72,73,74,75,82
 
 .. _coderef102:
 
@@ -18,6 +19,7 @@ Listing 102: CMakeLists.txt (No Prefix Generation)
    :language: cmake
    :linenos:
    :caption: CMakeLists.txt
+   :emphasize-lines: 8,9
 
 .. _coderef103:
 
@@ -45,3 +47,4 @@ Listing 105: register_types.cpp
    :language: cpp
    :linenos:
    :caption: register_types.cpp
+   :emphasize-lines: 17,29
