@@ -126,7 +126,7 @@ Change Extension Path
 ^^^^^^^^^^^^^^^^^^^^^
 
 Have a look at the library section, this section informs :term:`Godot` of the path to the :term:`extension`'s
-:term:`library` for various :term:`target platform`s.  These paths are relative to the :term:`.gdextension file`.
+:term:`library` for each :term:`target platform`.  These paths are relative to the :term:`.gdextension file`.
 
 To adjust the paths in this section it is easiest to just do a find and replace.
 

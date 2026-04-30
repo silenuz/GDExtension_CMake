@@ -37,6 +37,9 @@ sphinx_tabs_nowarn = True
 # Disable collapsing tabs for codeblocks.
 sphinx_tabs_disable_tab_closing = True
 
+# on_rtd is whether we are on readthedocs.org, this line of code grabbed from docs.readthedocs.org
+on_rtd = os.environ.get("READTHEDOCS", None) == "True"
+
 # The master toctree document
 master_doc = "index"
 
@@ -65,3 +68,12 @@ html_theme_options = {
 # Pygments (syntax highlighting) style to use
 pygments_style = "sphinx"
 highlight_language = "gdscript"
+
+# These paths are either relative to html_static_path
+# or fully qualified paths (e.g. https://...)
+html_css_files = [
+    "css/doc.css",
+]
+
+if not on_rtd:
+    html_css_files.append("css/dev.css")
