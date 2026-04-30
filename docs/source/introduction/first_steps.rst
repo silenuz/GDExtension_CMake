@@ -1,7 +1,7 @@
 First Steps
 -----------
 An explanation of the initial steps required to acquire the official
-:term:`godot cpp template`
+:term:`godot-cpp-template`
 and create a repository from it.  Further instruction follows in regards to cloning the repository, and
 building the template's example project.
 
@@ -19,7 +19,7 @@ created from the template is called mycooldemo:
 
     git clone https://github.com/account/mycooldemo.git --recursive
 
-The :term:`godot cpp template` is organized as follows:
+The :term:`template` is organized as follows:
 
 .. list-table::
    :widths: 20 50
@@ -32,15 +32,15 @@ The :term:`godot cpp template` is organized as follows:
      - #. bin directory
        #. :term:`extension documentation` for classes in the extension
        #. :term:`godot cpp` bindings for the extension
-       #. example :term:`Godot project`
+       #. example :term:`Godot` :term:`project`
        #. source code for the extension
-       #. empty custom build profile
-       #. :term:`cmake` configuration file
+       #. empty custom :term:`build profile`
+       #. :term:`CMake` configuration file
        #. used by :term:`SCons` to build the library for the extension (not used by cmake)
 
 .. note::
     If the repository was cloned without the ``--recursive`` flag, then the :term:`godot-cpp` directory will be empty.  To remedy
-    this open the repository directory in a terminal and execute the following;
+    this open the :term:`template` directory in a terminal and execute the following;
 
     .. code::
 
@@ -49,16 +49,16 @@ The :term:`godot cpp template` is organized as follows:
 Initial Configuration
 =====================
 
-After cloning the repository :term:`CMake` has to be configured. Open a terminal in the topmost level of the repository that
-was just cloned, for example mycooldemo and execute :term:`cmake` with the :term:`option`'s
+After cloning the repository :term:`CMake` has to be configured. Open a terminal in the topmost level of the :term:`template` that
+was just cloned, for example mycooldemo and execute cmake with the :term:`option`'s
 listed below:
 
 .. code:: shell
 
-   cmake -S . -B cmake-build-debug -G Ninja
+   cmake -S . -B cmake-build -G Ninja
 
 * ``-S`` specifies the source directory as the current directory
-* ``-B`` specifies the :term:`build directory` as ``cmake-build-debug``,
+* ``-B`` specifies the :term:`build directory` as ``cmake-build``,
     can be referred to as ``${CMAKE_BINARY_DIR}`` in the ``CMakeLists.txt`` file
 * ``-G`` specifies the :term:`cmake` :term:`generator` :term:`Ninja`
 
@@ -86,21 +86,27 @@ the configure command with a value of ``ON``.
 
 .. code:: shell
 
-   cmake -S . -B cmake-build-debug -G Ninja -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+   cmake -S . -B cmake-build -G Ninja -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
 
 
 Initial Build
 =============
+
+For this introductory guide, native compilation will be used.  This means that the
+:term:`target platform` and :term:`host platform` are essentially the same.
+
+Build
+^^^^^
 
 Once configured the :term:`extension` can be built by specifying a target of build followed by the name
 of the :term:`cmake` :term:`build directory`:
 
 .. code:: shell
 
-   cmake --build cmake-build-debug
+   cmake --build cmake-build
 
 If the build command worked, you should have a new library file for the
-target system in the :term:`Godot project` directory.  The example :term:`Godot project` directory is organized as follows:
+target system in the :term:`Godot` :term:`project` directory.  The example :term:`Godot` :term:`project` directory is organized as follows:
 
 .. list-table::
    :widths: 20 50
@@ -114,7 +120,7 @@ target system in the :term:`Godot project` directory.  The example :term:`Godot 
        #. standard :term:`Godot` project.
 
 
-The bin directory of the :term:`Godot project` contains the output of the build.
+The bin directory of the :term:`Godot` :term:`project` contains the output of the build.
 
 .. list-table::
    :widths: 20 50
@@ -124,19 +130,19 @@ The bin directory of the :term:`Godot project` contains the output of the build.
           :width: 100%
 
           Project Bin directory
-     - #. compiled libraries for target systems indicated by directory name
+     - #. compiled libraries for :term:`target platform`, indicated by directory name
        #. :term:`.gdextension file`
 
 
-Verify the Build
-^^^^^^^^^^^^^^^^^^^
+Verify
+^^^^^^
 
-In the :term:`Godot project`'s bin directory, open the directory corresponding to the target build system.
-There should be a library created there that will be named ``EXTENSION-NAME.target.template_debug.x86_64.so``.
+In the :term:`project`'s bin directory, open the directory corresponding to the :term:`target platform`.
+There should be a library created there that will be named ``EXTENSION-NAME.target platform.template_debug.x86_64.so``.
 
 Now open ``example.gdextension`` which is the :term:`.gdextension file` for the :term:`extension`.
 
-Look for the block of paths for the current platform, and check that the :term:`extension`'s library path corresponds to the correct name
+Look for the block of paths for the current :term:`host platform`, and check that the :term:`extension`'s library path corresponds to the correct name
 for the compiled library.
 
 If the path name in the :term:`.gdextension file` is different than the actual path, for example if the
@@ -154,12 +160,12 @@ And the actual library is named
 
 then the name of the library will have to be adjusted to account for any differences.
 
-Testing the Build
-^^^^^^^^^^^^^^^^^
+Test
+^^^^
 The :term:`extension` can now be tested by launching the :term:`Godot` editor and importing the :term:`Godot project` directory, or alternatively
 the command line can be used to launch the :term:`Godot` editor and load the :term:`project`.  To do so the command is
 
-``/path/to/godot.executable --editor --path /absolute/path/to/Godot project``
+``/path/to/godot.executable --editor --path /absolute/path/to/project``
 
 Once the :term:`project` is loaded in the editor, the :term:`extension` can be tested by running the main scene, which should print the following to the console.
 
@@ -169,10 +175,8 @@ Once the :term:`project` is loaded in the editor, the :term:`extension` can be t
 
 .. hint::
 
-    If the :term:`Godot` project throws a file not found error when loaded in the :term:`Godot` editor
+    If the :term:`project` throws a file not found error when loaded in the :term:`Godot` editor
     check the :term:`.gdextension file` and ensure the library name is correct.
-
-
 
 
 .. include:: ../share/links.rst
