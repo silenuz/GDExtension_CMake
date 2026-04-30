@@ -24,9 +24,11 @@ Godot
 
 Other
 =====
+* `clangd`_
+* `Language Server Protocol`_
 * `Ninja`_
 * `SCons`_
-* `clangd`_
+
 
 
 .. include:: ../share/links.rst

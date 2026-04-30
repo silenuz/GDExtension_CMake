@@ -17,3 +17,4 @@
 .. _Ninja: https://ninja-build.org/manual.html
 .. _SCons: https://scons.org/
 .. _clangd: https://clangd.llvm.org/
+.. _Language Server Protocol: https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/

@@ -105,8 +105,8 @@ of the :term:`cmake` :term:`build directory`:
 
    cmake --build cmake-build
 
-If the build command worked, you should have a new library file for the
-target system in the :term:`Godot` :term:`project` directory.  The example :term:`Godot` :term:`project` directory is organized as follows:
+If the build command worked, you should have a new :term:`library` file for the
+:term:`target platform` in the :term:`Godot` :term:`project` directory.  The example :term:`Godot` :term:`project` directory is organized as follows:
 
 .. list-table::
    :widths: 20 50
@@ -138,7 +138,7 @@ Verify
 ^^^^^^
 
 In the :term:`project`'s bin directory, open the directory corresponding to the :term:`target platform`.
-There should be a library created there that will be named ``EXTENSION-NAME.target platform.template_debug.x86_64.so``.
+There should be a :term:`library` created there that will be named ``EXTENSION-NAME.target platform.template_debug.x86_64.so``.
 
 Now open ``example.gdextension`` which is the :term:`.gdextension file` for the :term:`extension`.
 
