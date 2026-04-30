@@ -125,7 +125,7 @@ Change the :term:`entry symbol` from ``example_library_init`` to ``libraryname_l
 Change Extension Path
 ^^^^^^^^^^^^^^^^^^^^^
 
-Next have a look at the library section, this section informs :term:`Godot` of the path to the :term:`extension`'s 
+Have a look at the library section, this section informs :term:`Godot` of the path to the :term:`extension`'s
 :term:`library` for various :term:`target platform`s.  These paths are relative to the :term:`.gdextension file`.
 
 To adjust the paths in this section it is easiest to just do a find and replace.
