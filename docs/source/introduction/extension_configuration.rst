@@ -2,19 +2,19 @@ Extension Configuration
 -----------------------
 A description of the steps required to customize the extension:
 
-* Change the library name
-* Edit the entry symbol to reflect the new library name
-* Adjust extension paths to reflect new the library name
-* Edit the initialization function signature with the new entry symbol
+* Change the :term:`library` name
+* Edit the :term:`entry symbol` to reflect the new :term:`library` name
+* Adjust extension paths to reflect new the :term:`library` name
+* Update the :term:`entry point` function signature with the new :term:`entry symbol`
 
 CMake Configuration
 ============================
-The default library name is ``EXTENSION-NAME`` and to change it, the CMakeLists.txt file is edited.
-While there is nothing wrong with keeping the project folder as is, it might be better
-to rename it to something more suitable.  So if desired rename the project folder.
+The default :term:`library` name is ``EXTENSION-NAME`` and to change it, the CMakeLists.txt file is edited.
+While there is nothing wrong with keeping the :term:`project` directory as is, it might be better
+to rename it to something more suitable.  So if desired rename the :term:`project` directory.
 
-For the purposes of this example the project folder will be renamed to demo, and the library name will be
-cooldemo.
+For the purposes of this example the :term:`project` directory will be renamed to demo, and the 
+:term:`library` name will be renamed to cooldemo.
 
 Change Library Name
 ^^^^^^^^^^^^^^^^^^^
@@ -32,14 +32,14 @@ Change ``EXTENSION-NAME`` to be the name of the library like so:
 
 Change Project Folder
 ^^^^^^^^^^^^^^^^^^^^^
-Beneath that line should be where it sets the folder for the project, if the name of the project folder was changed it
-has to be changed here to.  Find the line:
+Beneath that line should be where it sets the directory for the :term:`project`, if the name of the :term:`project`
+directory was changed, it has to be changed here to.  Find the line:
 
 .. code:: cmake
 
     set(GODOT_PROJECT_DIR "project" CACHE STRING "The directory of a Godot project folder")
 
-Change ``project`` to be the new name of what was the project folder.
+Change ``project`` to be the new name of the :term:`project` directory.
 
 .. code:: cmake
 
@@ -47,16 +47,16 @@ Change ``project`` to be the new name of what was the project folder.
 
 Include Prefix In Library Name
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Currently the CMakeLists.txt file does not currently set a prefix for the library name, which could lead to a
-possible name mismatch between the generated library and the content of extension configuration file(``project/bin/example.gdextension``).
+Currently the CMakeLists.txt file does not currently set a prefix for the :term:`library` name, which could lead to a
+possible name mismatch between the generated :term:`library` and the content of :term:`extension`'s :term:`.gdextension file`.
 
 This comes down to a matter of preference, the cmake configuration can be edited to generate the
-necessary prefix so the library conforms to the naming conventions,
-on the various target systems.
+necessary prefix so the :term:`library` conforms to the naming conventions,
+on the various :term:`target platform`s.
 
-Or the library prefix can be omitted from the file name in the extension configuration file,
+Or the :term:`library` prefix can be omitted from the file name in the :term:`extension`'s :term:`.gdextension file`,
 which will be the next file to edit, where the name will have to be adjusted anyway.
-If the preference is to just adjust the name in the configuration file, skip to `Edit Configuration File`_ .
+If the preference is to just adjust the :term:`library` name in the :term:`.gdextension file`, skip to `Edit :term:`.gdextension file``_ .
 
 To add prefix generation to the cmake configuration open CMakeLists.txt, and scroll down to near the bottom where this
 block of code is:
@@ -72,8 +72,8 @@ block of code is:
     OUTPUT_NAME "${LIBNAME}${GODOTCPP_SUFFIX}"
     )
 
-Just above it insert the following code, which will detect the target system, and if the target system
-isn't windows the filename will have a prefix of ``lib``:
+Just above it insert the following code, which will detect the :term:`target platform`, and if the :term:`target platform`
+is anything but windows, the :term:`library`'s filename will have a prefix of ``lib``:
 
 .. code:: cmake
 
@@ -85,15 +85,16 @@ isn't windows the filename will have a prefix of ``lib``:
 
 Next edit the original block and change ``PREFIX ""`` with ``PREFIX "${LIBPREFIX}"``.
 
-Edit Configuration File
+Edit :term:`.gdextension file`
 =======================
-The :term:`.gdextension file` in your project contains the instructions for how to load the GDExtension.
+The :term:`.gdextension file` in the :term:`project` contains the instructions for how to load the :term:`extension`.
 The instructions are separated into specific sections.
 
-Now that cmake compiles the library with a different name, in order for Godot to be able to load the extension, the library's entry
-symbol has to be edited along with changing the extension name in the various defined paths in the configuration file.
+Now that cmake compiles the :term:`library` with a different name, in order for :term:`Godot` to be able to load the :term:`extension`, 
+the :term:`library`'s :term:`entry symbol` has to be edited.  As well the :term:`library`'s path has to be updated in the
+:term:`.gdextension file`.
 
-Open the extension configuration file(``demo/bin/example.gdextension``).
+Open the :term:`extension`'s :term:`.gdextension file` for example (``demo/bin/example.gdextension``).
 
 Change Entry Symbol
 ^^^^^^^^^^^^^^^^^^^
@@ -109,8 +110,8 @@ Find the configurations section (it should be near the top) and looks like this:
     compatibility_minimum = "4.1"
     reloadable = false
 
-Change the entry symbol from ``example_library_init`` to ``libraryname_library_init``, so for the cooldemo
-library in the example it is changed to this:
+Change the :term:`entry symbol` from ``example_library_init`` to ``libraryname_library_init``, so for the cooldemo
+:term:`library` in the example, it is changed to this:
 
 .. code-block:: INI
    :emphasize-lines: 3
@@ -124,33 +125,35 @@ library in the example it is changed to this:
 Change Extension Path
 ^^^^^^^^^^^^^^^^^^^^^
 
-Next have a look at the library section, this section informs Godot of the path to the extension for various target
-systems.  To adjust the paths in this section it is easiest to just do a find and replace.
+Next have a look at the library section, this section informs :term:`Godot` of the path to the :term:`extension`'s 
+:term:`library` for various :term:`target platform`s.  These paths are relative to the :term:`.gdextension file`.
+
+To adjust the paths in this section it is easiest to just do a find and replace.
 
 If the CMakeLists.txt file was altered to generate the lib prefix on systems other than windows,
-find "``EXTENSION-NAME``" and replace with the actual library name like "``cooldemo``".
+find "``EXTENSION-NAME``" and replace with the actual :term:`library` name like "``cooldemo``".
 
-Otherwise find "``libEXTENSION-NAME``" and replace it with the library name, this will fix the non windows names.
-Now find "``EXTENSION-NAME``" and replace it with the library name to fix the rest.
+Otherwise find "``libEXTENSION-NAME``" and replace it with the :term:`library` name, this will fix the non windows names.
+Now find "``EXTENSION-NAME``" and replace it with the :term:`library` name to fix the rest.
 
 Change File Name
 ^^^^^^^^^^^^^^^^
 
-Technically the name portion of the configuration file doesn't matter, as Godot loads it based on the file extension,
-however it is recommended that the configuration file be renamed to reflect the name of the library.
+Technically the name portion of the :term:`.gdextension file` doesn't matter, as :term:`Godot` loads it based on the file extension,
+however it is recommended that the :term:`.gdextension file` be renamed to reflect the name of the :term:`library`.
 
 .. todo: this sucks find better wording
 
-Currently the configuration file is named "``example.gdextension``"
-replace the word example with the library name like this "``cooldemo.gdextension``".
+Currently the :term:`.gdextension file` is named "``example.gdextension``"
+replace the word example with the :term:`library` name like this "``cooldemo.gdextension``".
 
 
 Source Code Configuration
 =========================
 
-The last step is to edit the source code in ``src/register_types.cpp``, which is a core file in a GDExtension project,
-and is used to initialize and register C++ classes with the Godot engine.  It serves as the entry point for Godot to recognize
-custom nodes, resources, and singletons through three key functions:
+The last step is to edit the source code in ``src/register_types.cpp``, which is a core file in any :term:`GDExtension`,
+and is used to initialize and register C++ classes with the :term:`Godot` engine.  It contains the :term:`entry point` for
+the :term:`extension`, and has three key functions:
 
 * Initialization Function:
     name: initialize_gdextension_types. It is called by Godot at different initialization levels (e.g., Core, Servers, Scene, Editor). You use ClassDB::register_class<YourClassName>() here to expose your classes to Godot.
@@ -178,7 +181,7 @@ Open ``src/register_types.cpp`` and scroll to near the bottom where the main ent
 	}
 
 Now replace the word example in the function definition to be the name chosen as the entry symbol in the gdextension
-configuration file.  For the cooldemo example the original:
+:term:`.gdextension file`.  For the cooldemo example the original:
 
 ``example_library_init``
 

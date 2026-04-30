@@ -114,6 +114,17 @@ Definition of terms specific to GDExtension development
    library
         The GDExtension resource type represents a :term:`shared library` which can expand the functionality of the engine
 
+   entry symbol
+       Sets the starting address (entry point) for an executable or shared library
+
+       The entry symbol for the :term:`extension` is defined in the configuration section
+       of the :term:`.gdextension file`.
+
+   entry point
+        A function that specifies a user-defined starting address for an .exe file or DLL.
+
+        By default, the starting address is a function name from the C run-time library.
+
 Other
 ===========
 Definition of miscellaneous terms
@@ -151,6 +162,7 @@ Definition of miscellaneous terms
 
    shared library
        A shared library is a library of executable code that is loaded in memory such that multiple executables (programs and other libraries) can use it at runtime.
+
 
 
 .. include:: ./share/links.rst
