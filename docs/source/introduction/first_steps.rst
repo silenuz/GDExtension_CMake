@@ -95,6 +95,10 @@ Initial Build
 For this introductory guide, native compilation will be used.  This means that the
 :term:`target platform` and :term:`host platform` are the same.
 
+.. todo: note about cross compiling
+
+Note goes here about cross compiling
+
 Build
 ^^^^^
 
@@ -106,7 +110,7 @@ of the :term:`CMake` :term:`build directory`:
    cmake --build cmake-build
 
 If the build command worked, you should have a new :term:`library` file for the
-:term:`target platform` in the :term:`Godot` :term:`project` directory.  The example :term:`Godot` :term:`project` directory is organized as follows:
+:term:`host platform` in the :term:`Godot` :term:`project` directory.  The example :term:`Godot` :term:`project` directory is organized as follows:
 
 .. list-table::
    :widths: 20 50
@@ -137,8 +141,8 @@ The bin directory of the :term:`Godot` :term:`project` contains the output of th
 Verify
 ^^^^^^
 
-In the :term:`project`'s bin directory, open the directory corresponding to the :term:`target platform`.
-There should be a :term:`library` created there that will be named ``EXTENSION-NAME.target platform.template_debug.x86_64.so``.
+In the :term:`project`'s bin directory, open the directory corresponding to the :term:`host platform`.
+There should be a :term:`library` created there that will be named ``EXTENSION-NAME.host platform.template_debug.x86_64.so``.
 
 Now open ``example.gdextension`` which is the :term:`.gdextension file` for the :term:`extension`.
 
