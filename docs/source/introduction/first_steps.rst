@@ -60,7 +60,7 @@ listed below:
 * ``-S`` specifies the source directory as the current directory
 * ``-B`` specifies the :term:`build directory` as ``cmake-build``,
     can be referred to as ``${CMAKE_BINARY_DIR}`` in the ``CMakeLists.txt`` file
-* ``-G`` specifies the :term:`cmake` :term:`generator` :term:`Ninja`
+* ``-G`` specifies the :term:`CMake` :term:`generator` :term:`Ninja`
 
 The :term:`build directory` is specified so that generated files do not clutter the source tree with build
 artifacts.
@@ -78,9 +78,9 @@ artifacts.
 
         and look for the generators array, it will contain the generators available to cmake.
 
-If the :term:`Cmake` :term:`generator` is :term:`Ninja`
+If the :term:`CMake` :term:`generator` is :term:`Ninja`
 or `Makefiles <https://cmake.org/cmake/help/latest/manual/cmake-generators.7.html#makefile-generators>`_
-you can use the configure target to also generate a :term:`compile_commands.json` in the :term:`build directory` for use
+you can use the configure target to generate a :term:`compile_commands.json` in the :term:`build directory` for use
 with :term:`clangd`. To do so the :term:`CMAKE_EXPORT_COMPILE_COMMANDS` :term:`CMake` :term:`variable` is added to
 the configure command with a value of ``ON``.
 
