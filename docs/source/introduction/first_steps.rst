@@ -29,14 +29,14 @@ The :term:`template` is organized as follows:
           :width: 100%
 
           Initial Repository Content
-     - #. bin directory
+     - #. bin directory for :term:`SCons` builds (not used by :term:`CMaKE`)
        #. :term:`extension documentation` for classes in the extension
        #. :term:`godot cpp` bindings for the extension
        #. example :term:`Godot` :term:`project`
        #. source code for the extension
        #. empty custom :term:`build profile`
        #. :term:`CMake` configuration file
-       #. used by :term:`SCons` to build the library for the extension (not used by cmake)
+       #. used by :term:`SCons` to build the :term:`library` for the :term:`extension` (not used by :term:`CMake`)
 
 .. note::
     If the repository was cloned without the ``--recursive`` flag, then the :term:`godot-cpp` directory will be empty.  To remedy
