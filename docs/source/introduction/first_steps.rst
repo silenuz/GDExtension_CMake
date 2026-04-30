@@ -142,8 +142,8 @@ There should be a :term:`library` created there that will be named ``EXTENSION-N
 
 Now open ``example.gdextension`` which is the :term:`.gdextension file` for the :term:`extension`.
 
-Look for the block of paths for the current :term:`host platform`, and check that the :term:`extension`'s library path corresponds to the correct name
-for the compiled library.
+Look for the block of paths for the current :term:`host platform`, and check that the :term:`extension`'s :term:`library` path corresponds to the correct name
+for the compiled :term:`library`.
 
 If the path name in the :term:`.gdextension file` is different than the actual path, for example if the
 :term:`.gdextension file` lists
@@ -152,13 +152,13 @@ If the path name in the :term:`.gdextension file` is different than the actual p
 
     "libEXTENSION-NAME.linux.template_debug.x86_64.so"
 
-And the actual library is named
+And the actual :term:`library` is named
 
 .. code::
 
     "EXTENSION-NAME.linux.template_debug.x86_64.so"
 
-then the name of the library will have to be adjusted to account for any differences.
+then the name of the :term:`library` will have to be adjusted in the :term:`.gdextension file` to account for any differences.
 
 Test
 ^^^^
@@ -176,7 +176,7 @@ Once the :term:`project` is loaded in the editor, the :term:`extension` can be t
 .. hint::
 
     If the :term:`project` throws a file not found error when loaded in the :term:`Godot` editor
-    check the :term:`.gdextension file` and ensure the library name is correct.
+    check the :term:`.gdextension file` and ensure the :term:`library` name is correct.
 
 
 .. include:: ../share/links.rst
