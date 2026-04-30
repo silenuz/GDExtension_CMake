@@ -47,11 +47,11 @@ Definition of terms used in regards to the CMake build system.
        See `CMAKE_BINARY_DIR`_ for more information.
 
    target platform
-       The target platform is the machine the compiled :term:`extension` is being built for, based on operating system
+       The target platform is the computer the compiled :term:`extension` is being built for, based on operating system
        and processor architecture.
 
    host platform
-       The host platform is the machine that is compiling the binary output.
+       The host platform is the computer that is compiling the binary output.
 
 GDExtension
 ===========
