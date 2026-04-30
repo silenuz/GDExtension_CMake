@@ -125,7 +125,7 @@ Definition of terms specific to GDExtension development
         By default, the starting address is a function name from the C run-time library.
 
         .. important::
-           The name of the entry point must be the same as the :term:`entry symbol`
+           The name of the entry point function must be the same as the :term:`entry symbol`
 
 Other
 ===========
