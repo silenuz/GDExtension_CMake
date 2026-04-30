@@ -102,8 +102,8 @@ Definition of terms specific to GDExtension development
 
    project
        The example :term:`Godot` project, which in the initial download of the :term:`godot cpp template` is simply called project.
-       The sub directory bin contains the :term:`.gdextension file` as well as a sub directory for each target system.
-       By default the compiled library for the :term:`extension` will be found in the folder named for the target system.
+       The sub directory bin contains the :term:`.gdextension file` as well as a sub directory for each :term:`target platform`.
+       By default the compiled library for the :term:`extension` will be found in the folder named for the :term:`target platform`.
 
 
    target
