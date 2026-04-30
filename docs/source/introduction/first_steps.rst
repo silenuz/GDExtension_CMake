@@ -93,13 +93,13 @@ Initial Build
 =============
 
 For this introductory guide, native compilation will be used.  This means that the
-:term:`target platform` and :term:`host platform` are essentially the same.
+:term:`target platform` and :term:`host platform` are the same.
 
 Build
 ^^^^^
 
 Once configured the :term:`extension` can be built by specifying a target of build followed by the name
-of the :term:`cmake` :term:`build directory`:
+of the :term:`CMake` :term:`build directory`:
 
 .. code:: shell
 
@@ -116,7 +116,7 @@ If the build command worked, you should have a new :term:`library` file for the
           :width: 100%
 
           Godot Project directory
-     - #. contains compiled library and extension configuration
+     - #. contains compiled :term:`library` and :term:`.gdextension file`
        #. standard :term:`Godot` project.
 
 
@@ -130,7 +130,7 @@ The bin directory of the :term:`Godot` :term:`project` contains the output of th
           :width: 100%
 
           Project Bin directory
-     - #. compiled libraries for :term:`target platform`, indicated by directory name
+     - #. compiled :term:`library` for :term:`target platform`, indicated by directory name
        #. :term:`.gdextension file`
 
 
