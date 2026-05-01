@@ -85,8 +85,9 @@ is anything but windows, the :term:`library`'s filename will have a prefix of ``
 
 Next edit the original block and change ``PREFIX ""`` with ``PREFIX "${LIBPREFIX}"``.
 
-Edit :term:`.gdextension file`
-=======================
+Edit :term:`Configuration <.gdextension file_>`__
+=================================================
+
 The :term:`.gdextension file` in the :term:`project` contains the instructions for how to load the :term:`extension`.
 The instructions are separated into specific sections.
 

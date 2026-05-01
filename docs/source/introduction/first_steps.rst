@@ -48,6 +48,11 @@ allowing the developer to create a new git repository with no history.
       First log into log in to GitHub, and then go to the `Godot CPP Template`_ and click the green
       "Use this template" button at the top of the repository page.
 
+      .. figure:: img/create_repo.png
+          :width: 100%
+
+          Use Template
+
       This will let you create a copy of the repository with a clean git history.
       Next clone the repository that was just created with the --recursive flag.  For example if the repository that was
       created from the template is called mycooldemo:
@@ -135,9 +140,9 @@ artifacts.
 
 If the :term:`CMake` :term:`generator` is :term:`Ninja`
 or `Makefiles <https://cmake.org/cmake/help/latest/manual/cmake-generators.7.html#makefile-generators>`_
-you can use the configure target to generate a :term:`compile_commands.json` in the :term:`build directory` for use
-with :term:`clangd`. To do so the :term:`CMAKE_EXPORT_COMPILE_COMMANDS` :term:`CMake` :term:`variable` is added to
-the configure command with a value of ``ON``.
+you can use the configuration stage to generate a :term:`compile_commands.json` in the :term:`build directory` for use
+with :term:`clangd`. To do so the :term:`CMAKE_EXPORT_COMPILE_COMMANDS` :term:`variable` is assigned a value
+of ``ON`` and passed as an :term:`option` to the cmake executable.
 
 .. code:: shell
 
