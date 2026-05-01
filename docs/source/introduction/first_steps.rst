@@ -26,11 +26,23 @@ allowing the developer to create a new git repository with no history.
 
    .. tab:: Clone
 
+      Open a terminal in the directory where the cloned :term:`template` is to be downloaded,
+      and execute the following command:
+
       .. code:: shell
 
          git clone https://github.com/godotengine/godot-cpp-template.git --recursive
 
       Rename the ``godot-cpp-template`` directory, to reflect the name of the extension.  For example ``mycooldemo``.
+
+      .. tip::
+         If you wish to detach the :term:`template` from the repository, open a terminal in the
+         :term:`template's <template>` directory and execute the following command to remove
+         the git origin, allowing for remote origin relocation.
+
+         .. code:: shell
+
+            git remote remove origin
 
    .. tab:: Create repository
       First log into log in to GitHub, and then go to the `Godot CPP Template`_ and click the green
