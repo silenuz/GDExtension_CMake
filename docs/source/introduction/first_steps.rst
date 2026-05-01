@@ -1,23 +1,66 @@
 First Steps
 -----------
-An explanation of the initial steps required to acquire the official
-:term:`godot-cpp-template`
-and create a repository from it.  Further instruction follows in regards to cloning the repository, and
-building the template's example project.
+An introduction to the official :term:`godot-cpp-template`, covering
 
-Clone Repository
-================
+* Acquisition of the :term:`template`
+* Organizational review of the template structure
+* Initial :term:`template` configuration
+* Building the :term:`template`
+* Organizational review of the example :term:`Godot` :term:`project`
+* Testing the build in the :term:`Godot` editor
 
-First log into log in to GitHub, and then go to the `Godot CPP Template`_ and click the green
-"Use this template" button at the top of the repository page.
 
-This will let you create a copy of the repository with a clean git history.
-Next clone the repository that was just created with the --recursive flag.  For example if the repository that was
-created from the template is called mycooldemo:
+Acquiring the :term:`Template <template>`
+=========================================
+There are multiple ways to acquire the :term:`godot-cpp-template`
 
-.. code::
+The easiest way is to simply clone the :term:`template's <template>` `repository <Godot CPP Template_>`__.
 
-    git clone https://github.com/account/mycooldemo.git --recursive
+If you want to share your :term:`extension` on GitHub, you can create a repository from the :term:`template`
+
+Lastly you can download the :term:`template` and :term:`godot-cpp` as zip files and manually create the directory tree.
+This is the hard way, and provides little added value other than it will lack git tracking,
+allowing the developer to create a new git repository with no history.
+
+.. tabs::
+
+   .. tab:: Clone
+
+      .. code:: shell
+
+         git clone https://github.com/godotengine/godot-cpp-template.git --recursive
+
+      Rename the ``godot-cpp-template`` directory, to reflect the name of the extension.  For example ``mycooldemo``.
+
+   .. tab:: Create repository
+      First log into log in to GitHub, and then go to the `Godot CPP Template`_ and click the green
+      "Use this template" button at the top of the repository page.
+
+      This will let you create a copy of the repository with a clean git history.
+      Next clone the repository that was just created with the --recursive flag.  For example if the repository that was
+      created from the template is called mycooldemo:
+
+      .. code:: shell
+
+         git clone https://github.com/account/mycooldemo.git --recursive
+
+   .. tab:: Download
+      Open `Godot CPP Template`_ repository in a web browser.  Click the green "Code" button and choose
+      Download ZIP.
+
+      .. figure:: img/zip_download.png
+          :width: 50%
+
+          Template Download
+
+      Unzip the compressed file, after unzipping, rename the ``godot-cpp-template-main`` directory,
+      to reflect the name of the extension.  For example ``mycooldemo``.
+
+      At this point there will be no :term:`godot-cpp` bindings for the :term:`extension`.
+      Open `Godot CPP Bindings`_ in your browser, click the green "Code" button, and choose Download Zip.
+
+      Extract the archive, and rename the extracted directory from ``godot-cpp-master`` to ``godot-cpp``.
+      Now move the ``godot-cpp``  directory to the top level of the :term:`template` directory.
 
 The :term:`template` is organized as follows:
 
@@ -42,7 +85,7 @@ The :term:`template` is organized as follows:
     If the repository was cloned without the ``--recursive`` flag, then the :term:`godot-cpp` directory will be empty.  To remedy
     this open the :term:`template` directory in a terminal and execute the following;
 
-    .. code::
+    .. code:: shell
 
         git submodule update --init
 
