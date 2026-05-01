@@ -6,8 +6,14 @@ CMake
 =====
 
 * `CMake`_
+* `Download <CMake download_>`__
+* `CMake build variables`_
+* `CMake build configuration`_
 * `CMake generator`_
+* `CMake install`_
 * `CMake options`_
+* `Running Tests <CMake tests_>`__
+* `CMake target`_
 * `CMake variable`_ (Variable Description)
 * `CMake variables`_ (List of CMake variables)
 * `CMAKE_EXPORT_COMPILE_COMMANDS`_

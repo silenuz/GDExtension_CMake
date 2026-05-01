@@ -1,11 +1,17 @@
 
 .. _CMake: https://cmake.org/cmake/help/latest/
+.. _CMake build variables: https://cmake.org/cmake/help/latest/guide/user-interaction/index.html#setting-build-variables
+.. _CMake build configuration: https://cmake.org/cmake/help/latest/manual/cmake-buildsystem.7.html#build-configurations
 .. _CMake options: https://cmake.org/cmake/help/latest/manual/cmake.1.html#options
 .. _CMake generator: https://cmake.org/cmake/help/latest/manual/cmake-generators.7.html
+.. _CMake tests: https://cmake.org/cmake/help/latest/guide/user-interaction/index.html#running-tests
 .. _CMake variable: https://cmake.org/cmake/help/latest/manual/cmake-language.7.html#cmake-language-variables
 .. _CMake variables: https://cmake.org/cmake/help/latest/manual/cmake-variables.7.html
 .. _CMAKE_EXPORT_COMPILE_COMMANDS: https://cmake.org/cmake/help/latest/variable/CMAKE_EXPORT_COMPILE_COMMANDS.html
 .. _CMAKE_BINARY_DIR: https://cmake.org/cmake/help/latest/variable/CMAKE_BINARY_DIR.html
+.. _CMake target: https://cmake.org/cmake/help/latest/guide/user-interaction/index.html#selecting-a-target
+.. _CMake install: https://cmake.org/cmake/help/latest/guide/user-interaction/index.html#software-installation
+.. _Cmake download: https://cmake.org/download/
 
 .. _Godot CPP Template: https://github.com/godotengine/godot-cpp-template
 .. _Godot: https://godotengine.org/
