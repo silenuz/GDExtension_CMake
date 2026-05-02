@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Version: Rough Draft 03 (01/05/2026)
+Version: Rough Draft 03 (02/05/2026)
 
 CMake Guide For GDExtensions
 ----------------------------
