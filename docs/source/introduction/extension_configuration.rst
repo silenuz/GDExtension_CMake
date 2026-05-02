@@ -30,8 +30,8 @@ Change ``EXTENSION-NAME`` to be the name of the library like so:
 
     set(LIBNAME "cooldemo") # "The name of the library"
 
-Change Project Folder
-^^^^^^^^^^^^^^^^^^^^^
+Change Project Directory
+^^^^^^^^^^^^^^^^^^^^^^^^
 Beneath that line should be where it sets the directory for the :term:`project`, if the name of the :term:`project`
 directory was changed, it has to be changed here to.  Find the line:
 
@@ -56,37 +56,39 @@ on the various :term:`target platform`s.
 
 Or the :term:`library` prefix can be omitted from the file name in the :term:`extension`'s :term:`.gdextension file`,
 which will be the next file to edit, where the name will have to be adjusted anyway.
-If the preference is to just adjust the :term:`library` name in the :term:`.gdextension file`, skip to `Edit :term:`.gdextension file``_ .
 
-To add prefix generation to the cmake configuration open CMakeLists.txt, and scroll down to near the bottom where this
-block of code is:
+.. admonition:: Add prefix Generation
+   :collapsible: closed
 
-.. code:: cmake
+   To add prefix generation to the cmake configuration open CMakeLists.txt, and scroll down to near the bottom where this
+   block of code is:
 
-    set_target_properties(${LIBNAME}
-    PROPERTIES
-    # The generator expression here prevents msvc from adding a Debug or Release subdir.
-    RUNTIME_OUTPUT_DIRECTORY "$<1:${PROJECT_SOURCE_DIR}/bin/${GODOTCPP_PLATFORM}>"
+   .. code:: cmake
 
-    PREFIX ""
-    OUTPUT_NAME "${LIBNAME}${GODOTCPP_SUFFIX}"
-    )
+       set_target_properties(${LIBNAME}
+       PROPERTIES
+       # The generator expression here prevents msvc from adding a Debug or Release subdir.
+       RUNTIME_OUTPUT_DIRECTORY "$<1:${PROJECT_SOURCE_DIR}/bin/${GODOTCPP_PLATFORM}>"
 
-Just above it insert the following code, which will detect the :term:`target platform`, and if the :term:`target platform`
-is anything but windows, the :term:`library`'s filename will have a prefix of ``lib``:
+       PREFIX ""
+       OUTPUT_NAME "${LIBNAME}${GODOTCPP_SUFFIX}"
+       )
 
-.. code:: cmake
+   Just above it insert the following code, which will detect the :term:`target platform`, and if the :term:`target platform`
+   is anything but windows, the :term:`library`'s filename will have a prefix of ``lib``:
 
-    if(WIN32)
-        set(LIBPREFIX "")
-    else ()
-        set(LIBPREFIX "lib")
-    endif ()
+   .. code:: cmake
 
-Next edit the original block and change ``PREFIX ""`` with ``PREFIX "${LIBPREFIX}"``.
+       if(WIN32)
+           set(LIBPREFIX "")
+       else ()
+           set(LIBPREFIX "lib")
+       endif ()
 
-Edit :term:`Configuration <.gdextension file_>`__
-=================================================
+   Next edit the original block and change ``PREFIX ""`` with ``PREFIX "${LIBPREFIX}"``.
+
+Extension Configuration
+=======================
 
 The :term:`.gdextension file` in the :term:`project` contains the instructions for how to load the :term:`extension`.
 The instructions are separated into specific sections.

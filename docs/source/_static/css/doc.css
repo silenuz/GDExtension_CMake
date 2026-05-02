@@ -129,8 +129,8 @@
     --code-example-good-color: #3fb950;
     --code-example-bad-color: #f85149;
 
-    --btn-neutral-background-color: #f3f6f6;
-    --btn-neutral-hover-background-color: #e5ebeb;
+    /*--btn-neutral-background-color: #f3f6f6;*/
+    /*--btn-neutral-hover-background-color: #e5ebeb;*/
     --footer-color: #808080;
 
     /* Use the same fonts as Godot's modern editor theme, with a system font fallback in case the web fonts fail to load. */

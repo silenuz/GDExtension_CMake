@@ -70,7 +70,7 @@ allowing the developer to create a new git repository with no history.
 
           Template Download
 
-Unzip the compressed file, after unzipping, rename the ``godot-cpp-template-main`` directory,
+      Unzip the compressed file, after unzipping, rename the ``godot-cpp-template-main`` directory,
       to reflect the name of the extension.  For example :term:`mycooldemo`.
 
       At this point there will be no :term:`godot-cpp` bindings for the :term:`extension`.
