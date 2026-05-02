@@ -502,3 +502,9 @@ code,
 .highlight .s.s-StringName /* String.StringName */ {
 	color: var(--highlight-string-name-color);
 }
+
+button.toggle-button{
+    position: absolute;
+    top: 2px;
+}
+
