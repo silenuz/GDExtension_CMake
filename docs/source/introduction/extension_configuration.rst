@@ -47,18 +47,13 @@ Change ``project`` to be the new name of the :term:`project` directory.
 
 Include Prefix In Library Name
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Currently the CMakeLists.txt file does not currently set a prefix for the :term:`library` name, which could lead to a
-possible name mismatch between the generated :term:`library` and the content of :term:`extension`'s :term:`.gdextension file`.
+Currently the CMakeLists.txt file does not currently set a prefix for the :term:`library` name,
+which is in no way a problem, however it results in the :term:`library's<library>` name not following naming conventions on
+some :term:`target platforms<target platform>`.  If you want to add prefix generation, which is optional, expand the next
+paragraph and follow the instructions.
 
-This comes down to a matter of preference, the cmake configuration can be edited to generate the
-necessary prefix so the :term:`library` conforms to the naming conventions,
-on the various :term:`target platform`s.
-
-Or the :term:`library` prefix can be omitted from the file name in the :term:`extension`'s :term:`.gdextension file`,
-which will be the next file to edit, where the name will have to be adjusted anyway.
-
-.. admonition:: Add prefix Generation
-   :collapsible: closed
+.. admonition:: Prefix Generation
+   :class: dropdown
 
    To add prefix generation to the cmake configuration open CMakeLists.txt, and scroll down to near the bottom where this
    block of code is:

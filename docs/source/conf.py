@@ -26,6 +26,7 @@ sys.path.append(os.path.abspath("_extensions"))
 extensions = [
     "sphinx_tabs.tabs",
     "sphinxext.opengraph",
+    "sphinx_togglebutton",
     "gdscript",
 ]
 
@@ -39,6 +40,9 @@ sphinx_tabs_disable_tab_closing = True
 
 # on_rtd is whether we are on readthedocs.org, this line of code grabbed from docs.readthedocs.org
 on_rtd = os.environ.get("READTHEDOCS", None) == "True"
+
+togglebutton_hint = ""
+togglebutton_hint_hide = ""
 
 # The master toctree document
 master_doc = "index"

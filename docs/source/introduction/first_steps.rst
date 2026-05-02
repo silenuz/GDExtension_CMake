@@ -153,7 +153,7 @@ Initial Build
 =============
 
 For this introductory guide, native compilation will be used.  This means that the
-:term:`target platform` and :term:`host platform` are the same.
+:term:`host platform` is the :term:`target platform` .
 
 .. todo: note about cross compiling
 
