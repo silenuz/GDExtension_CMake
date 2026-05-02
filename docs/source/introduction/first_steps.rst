@@ -31,9 +31,9 @@ allowing the developer to create a new git repository with no history.
 
       .. code:: shell
 
-         git clone https://github.com/godotengine/godot-cpp-template.git --recursive
+         git clone https://github.com/godotengine/godot-cpp-template.git --recursive ./mycooldemo
 
-      Rename the ``godot-cpp-template`` directory, to reflect the name of the extension.  For example ``mycooldemo``.
+      This will clone the ``godot-cpp-template`` into a directory named :term:`mycooldemo`.
 
       .. tip::
          If you wish to detach the :term:`template` from the repository, open a terminal in the
@@ -55,7 +55,7 @@ allowing the developer to create a new git repository with no history.
 
       This will let you create a copy of the repository with a clean git history.
       Next clone the repository that was just created with the --recursive flag.  For example if the repository that was
-      created from the template is called mycooldemo:
+      created from the template is called :term:`mycooldemo`:
 
       .. code:: shell
 
@@ -70,8 +70,8 @@ allowing the developer to create a new git repository with no history.
 
           Template Download
 
-      Unzip the compressed file, after unzipping, rename the ``godot-cpp-template-main`` directory,
-      to reflect the name of the extension.  For example ``mycooldemo``.
+Unzip the compressed file, after unzipping, rename the ``godot-cpp-template-main`` directory,
+      to reflect the name of the extension.  For example :term:`mycooldemo`.
 
       At this point there will be no :term:`godot-cpp` bindings for the :term:`extension`.
       Open `Godot CPP Bindings`_ in your browser, click the green "Code" button, and choose Download Zip.
@@ -110,7 +110,7 @@ Initial Configuration
 =====================
 
 After cloning the repository :term:`CMake` has to be configured. Open a terminal in the topmost level of the :term:`template` that
-was just cloned, for example mycooldemo and execute cmake with the :term:`option`'s
+was just cloned, for example :term:`mycooldemo` and execute cmake with the :term:`option`'s
 listed below:
 
 .. code:: shell

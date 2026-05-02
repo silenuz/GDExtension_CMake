@@ -232,5 +232,23 @@ Definition of miscellaneous terms
        A shared library is a library of executable code that is loaded in memory such that multiple executables (programs and other libraries) can use it at runtime.
 
 
+Walkthrough
+===========
+Definition of terms specific to the walkthrough
+
+.. glossary::
+   :sorted:
+
+   mycooldemo
+      In the walkthrough mycooldemo refers to both the directory name where the :term:`template` is cloned/downloaded to,
+      as well as the :term:`CMake` project name for the :term:`extension` as a whole.
+
+   demo
+      This is the name the walkthrough gives the :term:`project` directory.
+
+   cooldemo
+      This is the :term:`library` name for the compiled :term:`extension`
+
+
 
 .. include:: ./share/links.rst
