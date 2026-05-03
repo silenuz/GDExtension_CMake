@@ -204,6 +204,7 @@ Definition of terms specific to GDExtension development
 
         See `Entry Point`_ for more information
 
+
 Other
 ===========
 Definition of miscellaneous terms

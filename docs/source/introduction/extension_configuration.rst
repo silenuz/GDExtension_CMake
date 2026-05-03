@@ -99,6 +99,9 @@ Open the :term:`extension`'s :term:`.gdextension file` for example (``demo/bin/e
 
 Change Entry Symbol
 ^^^^^^^^^^^^^^^^^^^
+The value of the ``entry_symbol`` key, in the configuration section of the :term:`.gdextension file`, informs :term:`Godot`
+of the name of the :term:`entry point` function, which will be the first function executed when the :term:`extension` is
+loaded.
 
 Find the configurations section (it should be near the top) and looks like this:
 
@@ -111,7 +114,7 @@ Find the configurations section (it should be near the top) and looks like this:
     compatibility_minimum = "4.1"
     reloadable = false
 
-Change the :term:`entry symbol` from ``example_library_init`` to ``libraryname_library_init``, so for the cooldemo
+Change the :term:`entry symbol` from ``example_library_init`` to ``libraryname_library_init``, so for the :term:`cooldemo`
 :term:`library` in the example, it is changed to this:
 
 .. code-block:: INI
@@ -140,13 +143,11 @@ Now find "``EXTENSION-NAME``" and replace it with the :term:`library` name to fi
 Change File Name
 ^^^^^^^^^^^^^^^^
 
-Technically the name portion of the :term:`.gdextension file` doesn't matter, as :term:`Godot` loads it based on the file extension,
-however it is recommended that the :term:`.gdextension file` be renamed to reflect the name of the :term:`library`.
+Technically the name portion of the :term:`.gdextension file` doesn't matter, as :term:`Godot` loads it based on the file extension
+however it is recommended that the :term:`.gdextension file` be renamed.
 
-.. todo: this sucks find better wording
-
-Currently the :term:`.gdextension file` is named "``example.gdextension``"
-replace the word example with the :term:`library` name like this "``cooldemo.gdextension``".
+Currently the :term:`.gdextension file` is named "``example.gdextension``" , rename it to reflect the :term:`library`
+name, for example "``cooldemo.gdextension``".
 
 
 Source Code Configuration
