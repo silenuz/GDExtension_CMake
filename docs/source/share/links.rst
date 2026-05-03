@@ -13,6 +13,7 @@
 .. _CMake install: https://cmake.org/cmake/help/latest/guide/user-interaction/index.html#software-installation
 .. _Cmake download: https://cmake.org/download/
 
+.. _ClassDB: https://docs.godotengine.org/en/stable/classes/class_classdb.html
 .. _Godot CPP Template: https://github.com/godotengine/godot-cpp-template
 .. _Godot: https://godotengine.org/
 .. _Godot CPP Bindings: https://github.com/godotengine/godot-cpp/tree/6388e26dd8a42071f65f764a3ef3d9523dda3d6e

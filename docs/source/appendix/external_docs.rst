@@ -22,6 +22,7 @@ CMake
 Godot
 =====
 * `Godot Engine <Godot_>`__
+* `ClassDB`_
 * `GDExtension system`_
 * `Godot CPP Template`_
 * `Godot CPP Bindings`_

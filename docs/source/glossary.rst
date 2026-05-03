@@ -199,26 +199,37 @@ Definition of terms specific to GDExtension development
         A function that specifies a user-defined starting address for an .exe file or DLL.
         By default, the starting address is a function name from the C run-time library.
 
-        .. important::
-           The name of the entry point function must be the same as the name of the :term:`entry symbol`
-
         See `Entry Point`_ for more information
 
-   register_types.cpp
-          is a core file in any :term:`GDExtension`, and is used to initialize and register C++ classes with the
-          :term:`Godot` engine.  It contains the :term:`entry point` for the :term:`extension`, and has three key functions:
+   entry point function
+      When you create a GDExtension, you must define an entry point function, to serve as the :term:`entry point` for the :term:`library`.
+      In the :term:`template's<template>` :term:`register_types.cpp` file this function is initially named ``example_library_init``.
+      :term:`Godot` calls this function when loading your :term:`library`.
 
-         * Initialization Function:
-            name: (e.g., Core, Servers, Scene, Editor). You use ClassDB::register_class<YourClassName>() here to expose your classes to Godot.
-         * Deinitialization Function:
-            name: uninitialize_gdextension_types. This cleans up any memory or resources allocated during initialization.
-         * Entry Point (extern "C"):
-            The main entry function (e.g., example_library_init) that Godot calls when loading the dynamic library. It sets up the binding between your C++ code and the GDExtension interface.
+      Inside this function, you use a ``GDExtensionBinding::InitObject`` to register two critical callbacks:
+
+      * An initializer, by using :term:`register_initializer` to register the :term:`initialization function`
+      * A terminator, by using :term:`register_terminator` to register the
+
+       .. important::
+          The name of the entry point function must be the same as the name of the :term:`entry symbol`
+
+   register_types.cpp
+      A core file in any :term:`GDExtension`, implementations here are used to initialize and register C++ classes with the
+      :term:`Godot` engine.  It contains the :term:`entry point` for the :term:`extension`, and has three key functions:
+
+      * :term:`Entry Point Function <entry point function>`
+
+      * An :term:`Initialization Function`
+
+      * A :term:`Deinitialization Function`
 
    Initialization Function
    initialization function
-          Name: initialize_gdextension_types.
-          Found in :term:`register_types.cpp` this function sets up registration callbacks (like register_initializer) and defines the initialization level.
+          Name in :term:`template`: ``initialize_gdextension_types``.
+
+          Found in :term:`register_types.cpp` this function is registered as a callback function in the :term:`entry point function`
+          using :term:`register_initializer`.
 
           Godot calls this initialization function across four levels:
 
@@ -227,11 +238,22 @@ Definition of terms specific to GDExtension development
           * SCENE: Registration for nodes and objects.
           * EDITOR: Editor-specific plugins.
 
-          Classes are registered here with the :term:`Godot` :term:`ClassDB` using "``GDREGISTER_CLASS(ClassName)``"
-          specifically during the SCENE level to make them available in the editor.
+          Classes are registered here with the :term:`Godot` :term:`ClassDB` using "``GDREGISTER_CLASS(ClassName)``",
+          specifically using the SCENE level to make them available in the editor.
+
+   Deinitialization Function
+   deinitialization function
+      Name in :term:`template`: ``uninitialize_gdextension_types``.
+
+      Found in :term:`register_types.cpp` this function is registered as a callback function in the :term:`entry point function`
+      using :term:`register_terminator`.
+
+      * Purpose:  It acts as the counterpart to the :term:`initialization function`, ensuring resources allocated,
+                  in C++ are properly freed to avoid memory leaks or crashes.
+      * Signature: It usually takes ModuleInitializationLevel p_level as an argument to determine if it should clean up core, editor, or scene types
 
    ClassDB
-      In the Godot Engine, ClassDB is a static class that acts as a central repository for all available engine classes.
+      In the :term:`Godot` Engine, ClassDB is a static class that acts as a central repository for all available engine classes.
       It provides access to metadata stored for every class registered within the engine, allowing you to inspect
       properties, methods, and signals at runtime.
 
@@ -253,10 +275,51 @@ Definition of terms specific to GDExtension development
          When developing a C++ module or :term:`GDExtension`, ClassDB must be used to manually register custom classes
          and bind their methods in order to expose them to the  :term:`Godot` engine.
 
+      See `ClassDB`_ for more information.
+
    register_initializer
-      In a :term:`GDExtension`, register_initializer is a function used within the :term:`library's<library>`
-      :term:`entry point` function to define a callback function that :term:`Godot` calls when initializing the
+      In a :term:`GDExtension`, register_initializer is a method used within the :term:`library's<library>`
+      :term:`entry point function` to define a callback function that :term:`Godot` calls when initializing the
       :term:`extension`.
+
+      .. code-block:: cpp
+         :emphasize-lines: 7
+
+         extern "C"
+         {
+            // Initialization
+            GDExtensionBool GDE_EXPORT example_library_init(GDExtensionInterfaceGetProcAddress p_get_proc_address, GDExtensionClassLibraryPtr p_library, GDExtensionInitialization *r_initialization)
+            {
+               GDExtensionBinding::InitObject init_obj(p_get_proc_address, p_library, r_initialization);
+               init_obj.register_initializer(initialize_gdextension_types);
+               init_obj.register_terminator(uninitialize_gdextension_types);
+               init_obj.set_minimum_library_initialization_level(MODULE_INITIALIZATION_LEVEL_SCENE);
+
+               return init_obj.init();
+            }
+         }
+
+   register_terminator
+         In a :term:`GDExtension`, register_terminator is a method used within the :term:`library's<library>`
+         :term:`entry point function` to define a callback function that :term:`Godot` calls when unloading the
+         :term:`extension`.
+
+         .. code-block:: cpp
+            :emphasize-lines: 8
+
+            extern "C"
+            {
+               // Initialization
+               GDExtensionBool GDE_EXPORT example_library_init(GDExtensionInterfaceGetProcAddress p_get_proc_address, GDExtensionClassLibraryPtr p_library, GDExtensionInitialization *r_initialization)
+               {
+                  GDExtensionBinding::InitObject init_obj(p_get_proc_address, p_library, r_initialization);
+                  init_obj.register_initializer(initialize_gdextension_types);
+                  init_obj.register_terminator(uninitialize_gdextension_types);
+                  init_obj.set_minimum_library_initialization_level(MODULE_INITIALIZATION_LEVEL_SCENE);
+
+                  return init_obj.init();
+               }
+            }
 
 Other
 =====
