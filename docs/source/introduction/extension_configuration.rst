@@ -162,23 +162,23 @@ and has three key functions:
 * Entry Point (extern "C"):
     The main entry function (e.g., example_library_init) that Godot calls when loading the dynamic library. It sets up the binding between your C++ code and the GDExtension interface.
 
-Rename Init Function
-^^^^^^^^^^^^^^^^^^^^
+Change Entry Point
+^^^^^^^^^^^^^^^^^^
 
 Open ``src/register_types.cpp`` and scroll to near the bottom where the main entry function is, it looks like this:
 
 .. code-block:: cpp
 
-    	// Initialization
-	GDExtensionBool GDE_EXPORT example_library_init(GDExtensionInterfaceGetProcAddress p_get_proc_address, GDExtensionClassLibraryPtr p_library, GDExtensionInitialization *r_initialization)
-	{
-		GDExtensionBinding::InitObject init_obj(p_get_proc_address, p_library, r_initialization);
-		init_obj.register_initializer(initialize_gdextension_types);
-		init_obj.register_terminator(uninitialize_gdextension_types);
-		init_obj.set_minimum_library_initialization_level(MODULE_INITIALIZATION_LEVEL_SCENE);
+   //Initialization
+   GDExtensionBool GDE_EXPORT example_library_init(GDExtensionInterfaceGetProcAddress p_get_proc_address, GDExtensionClassLibraryPtr p_library, GDExtensionInitialization *r_initialization)
+   {
+      GDExtensionBinding::InitObject init_obj(p_get_proc_address, p_library, r_initialization);
+      init_obj.register_initializer(initialize_gdextension_types);
+      init_obj.register_terminator(uninitialize_gdextension_types);
+      init_obj.set_minimum_library_initialization_level(MODULE_INITIALIZATION_LEVEL_SCENE);
 
-		return init_obj.init();
-	}
+      return init_obj.init();
+   }
 
 Now replace the word example in the function definition to be the name chosen as the entry symbol in the gdextension
 :term:`.gdextension file`.  For the :term:`cooldemo` example the original:
@@ -225,7 +225,7 @@ The method in the example extension:
 The extension currently registers a single class called ``ExampleClass``, at the scene initialization level.
 The example class implements a function called "``print_type``" :
 
-.. code:: cpp
+.. code-block:: cpp
 
    void ExampleClass::print_type(const Variant &p_variant) const {
        print_line(vformat("Type: %d", p_variant.get_type()));
@@ -236,7 +236,7 @@ the script attached to the main scene.
 
 The script is pretty simple:
 
-.. code:: GDScript
+.. code-block:: gd
 
    extends Node
 
