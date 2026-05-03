@@ -231,7 +231,6 @@ Definition of terms specific to GDExtension development
           specifically during the SCENE level to make them available in the editor.
 
    ClassDB
-      :term:`TEST`
       In the Godot Engine, ClassDB is a static class that acts as a central repository for all available engine classes.
       It provides access to metadata stored for every class registered within the engine, allowing you to inspect
       properties, methods, and signals at runtime.
@@ -259,11 +258,8 @@ Definition of terms specific to GDExtension development
       :term:`entry point` function to define a callback function that :term:`Godot` calls when initializing the
       :term:`extension`.
 
-
-.. include:: ./introduction/test.rst
-
 Other
-===========
+=====
 Definition of miscellaneous terms
 
 .. glossary::
