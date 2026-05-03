@@ -312,7 +312,7 @@ Definition of terms specific to the walkthrough
       This is the name the walkthrough gives the :term:`project` directory.
 
    cooldemo
-      This is the :term:`library` name for the compiled :term:`extension`
+      This is the name the walkthrough gives the :term:`library` for the compiled :term:`extension`
 
 
 
