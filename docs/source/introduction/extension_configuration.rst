@@ -153,12 +153,10 @@ name, for example "``cooldemo.gdextension``".
 Source Code Configuration
 =========================
 
-The last step is to edit the source code in ``src/register_types.cpp``, which is a core file in any :term:`GDExtension`,
-and is used to initialize and register C++ classes with the :term:`Godot` engine.  It contains the :term:`entry point` for
-the :term:`extension`, and has three key functions:
+The last step is to edit the source code in ``src/register_types.cpp``, :term:`register_types.cpp` is a core file in any :term:`GDExtension`,
+and has three key functions:
 
-* Initialization Function:
-    name: initialize_gdextension_types. It is called by Godot at different initialization levels (e.g., Core, Servers, Scene, Editor). You use ClassDB::register_class<YourClassName>() here to expose your classes to Godot.
+* :term:`Initialization Function`:
 * Deinitialization Function:
     name: uninitialize_gdextension_types. This cleans up any memory or resources allocated during initialization.
 * Entry Point (extern "C"):
@@ -169,7 +167,7 @@ Rename Init Function
 
 Open ``src/register_types.cpp`` and scroll to near the bottom where the main entry function is, it looks like this:
 
-.. code:: cpp
+.. code-block:: cpp
 
     	// Initialization
 	GDExtensionBool GDE_EXPORT example_library_init(GDExtensionInterfaceGetProcAddress p_get_proc_address, GDExtensionClassLibraryPtr p_library, GDExtensionInitialization *r_initialization)
@@ -183,7 +181,7 @@ Open ``src/register_types.cpp`` and scroll to near the bottom where the main ent
 	}
 
 Now replace the word example in the function definition to be the name chosen as the entry symbol in the gdextension
-:term:`.gdextension file`.  For the cooldemo example the original:
+:term:`.gdextension file`.  For the :term:`cooldemo` example the original:
 
 ``example_library_init``
 
@@ -191,8 +189,8 @@ would become:
 
 ``cooldemo_library_init``
 
-At this point the extension is properly configured, and can be built and tested,
-however while the file is open, let's examine the other two methods, to see how the extension's
+At this point the :term:`extension` is properly configured, and can be built and tested,
+however while the file is open, let's examine the other two functions, to see how the extension's
 "``ExampleClass``" is registered, and examine the method that unloads the extension.
 
 Registering Classes

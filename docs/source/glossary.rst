@@ -204,6 +204,59 @@ Definition of terms specific to GDExtension development
 
         See `Entry Point`_ for more information
 
+   register_types.cpp
+          is a core file in any :term:`GDExtension`, and is used to initialize and register C++ classes with the
+          :term:`Godot` engine.  It contains the :term:`entry point` for the :term:`extension`, and has three key functions:
+
+         * Initialization Function:
+            name: (e.g., Core, Servers, Scene, Editor). You use ClassDB::register_class<YourClassName>() here to expose your classes to Godot.
+         * Deinitialization Function:
+            name: uninitialize_gdextension_types. This cleans up any memory or resources allocated during initialization.
+         * Entry Point (extern "C"):
+            The main entry function (e.g., example_library_init) that Godot calls when loading the dynamic library. It sets up the binding between your C++ code and the GDExtension interface.
+
+   Initialization Function
+   initialization function
+          Name: initialize_gdextension_types.
+          Found in :term:`register_types.cpp` this function sets up registration callbacks (like register_initializer) and defines the initialization level.
+
+          Godot calls this initialization function across four levels:
+
+          * CORE: Post-engine core.
+          * SERVERS: Post-servers (physics/rendering).
+          * SCENE: Registration for nodes and objects.
+          * EDITOR: Editor-specific plugins.
+
+          Classes are registered here with the :term:`Godot` :term:`ClassDB` using "``GDREGISTER_CLASS(ClassName)``"
+          specifically during the SCENE level to make them available in the editor.
+
+   ClassDB
+      In the Godot Engine, ClassDB is a static class that acts as a central repository for all available engine classes.
+      It provides access to metadata stored for every class registered within the engine, allowing you to inspect
+      properties, methods, and signals at runtime.
+
+      Key Functions:
+
+      * Instantiating Objects:
+         You can create a new instance of a built-in class by its name using ClassDB.instantiate("ClassName")
+
+      * Querying Class Info:
+         You can check if a class exists, find its parent class, or list all classes that inherit from a specific type (e.g., all types of Node).
+
+      * Metadata Inspection:
+         It allows you to retrieve a list of properties, methods, and signals for any given class name.
+
+      * Type Checking:
+         You can verify if a class inherits from another (e.g., is_parent_class)
+
+      .. important::
+         When developing a C++ module or :term:`GDExtension`, ClassDB must be used to manually register custom classes
+         and bind their methods in order to expose them to the  :term:`Godot` engine.
+
+   register_initializer
+      In a :term:`GDExtension`, register_initializer is a function used within the :term:`library's<library>`
+      :term:`entry point` function to define a callback function that :term:`Godot` calls when initializing the
+      :term:`extension`.
 
 Other
 ===========
