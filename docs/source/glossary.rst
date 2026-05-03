@@ -187,17 +187,22 @@ Definition of terms specific to GDExtension development
         The GDExtension resource type represents a :term:`shared library` which can expand the functionality of the engine
 
    entry symbol
-       Sets the starting address (entry point) for an executable or shared library
+       Sets the starting address (entry point) for an executable or shared library,
+       by exposing the functionality of the :term:`entry point`.
 
        The entry symbol for the :term:`extension` is defined in the configuration section
        of the :term:`.gdextension file`.
+
+       See `Entry Symbol`_ for more information
 
    entry point
         A function that specifies a user-defined starting address for an .exe file or DLL.
         By default, the starting address is a function name from the C run-time library.
 
         .. important::
-           The name of the entry point function must be the same as the :term:`entry symbol`
+           The name of the entry point function must be the same as the name of the :term:`entry symbol`
+
+        See `Entry Point`_ for more information
 
 Other
 ===========

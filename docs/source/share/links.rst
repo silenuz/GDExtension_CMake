@@ -24,3 +24,5 @@
 .. _SCons: https://scons.org/
 .. _clangd: https://clangd.llvm.org/
 .. _Language Server Protocol: https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/
+.. _Entry Point: https://learn.microsoft.com/hr-hr/cpp/build/reference/entry-entry-point-symbol?view=msvc-170
+.. _Entry Symbol: https://learn.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.vcprojectengine.vclinkertool.entrypointsymbol?view=visualstudiosdk-2022

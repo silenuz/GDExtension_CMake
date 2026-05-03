@@ -31,6 +31,8 @@ Godot
 Other
 =====
 * `clangd`_
+* `Entry Point`_
+* `Entry Symbol`_
 * `Language Server Protocol`_
 * `Ninja`_
 * `SCons`_

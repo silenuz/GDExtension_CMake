@@ -13,8 +13,8 @@ The default :term:`library` name is ``EXTENSION-NAME`` and to change it, the CMa
 While there is nothing wrong with keeping the :term:`project` directory as is, it might be better
 to rename it to something more suitable.  So if desired rename the :term:`project` directory.
 
-For the purposes of this example the :term:`project` directory will be renamed to demo, and the 
-:term:`library` name will be renamed to cooldemo.
+For the purposes of this example the :term:`project` directory will be renamed to :term:`demo`, and the
+:term:`library` name will be renamed to :term:`cooldemo`.
 
 Change Library Name
 ^^^^^^^^^^^^^^^^^^^
@@ -47,9 +47,11 @@ Change ``project`` to be the new name of the :term:`project` directory.
 
 Include Prefix In Library Name
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Currently the CMakeLists.txt file does not currently set a prefix for the :term:`library` name,
-which is in no way a problem, however it results in the :term:`library's<library>` name not following naming conventions on
-some :term:`target platforms<target platform>`.  If you want to add prefix generation, which is optional, expand the next
+Currently the CMakeLists.txt file does not currently set a prefix for the :term:`library` name.
+While this is in no way a problem, it results in the :term:`library's<library>` name not following naming conventions on
+some :term:`target platforms<target platform>`.
+
+If you want to add prefix generation, which is optional, expand the next
 paragraph and follow the instructions.
 
 .. admonition:: Prefix Generation
@@ -86,7 +88,8 @@ Extension Configuration
 =======================
 
 The :term:`.gdextension file` in the :term:`project` contains the instructions for how to load the :term:`extension`.
-The instructions are separated into specific sections.
+The instructions are separated into specific sections.  The libraries section contains the path to the compiled :term:`library`,
+for each :term:`target platform`, these paths are relative to the :term:`.gdextension file`.
 
 Now that cmake compiles the :term:`library` with a different name, in order for :term:`Godot` to be able to load the :term:`extension`, 
 the :term:`library`'s :term:`entry symbol` has to be edited.  As well the :term:`library`'s path has to be updated in the
