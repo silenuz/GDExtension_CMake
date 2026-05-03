@@ -47,4 +47,4 @@ Listing 105: register_types.cpp
    :language: cpp
    :linenos:
    :caption: register_types.cpp
-   :emphasize-lines: 17,29
+   :emphasize-lines: 29
