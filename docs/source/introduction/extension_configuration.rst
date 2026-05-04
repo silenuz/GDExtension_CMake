@@ -199,23 +199,19 @@ it is registered in the :term:`entry point function` using :term:`register_initi
       :emphasize-lines: 7
 
 Within the :term:`initialization function` , register classes with :term:`ClassDB`
-using "``GDREGISTER_CLASS(ClassName)``" specifically during the SCENE level to make them available in the editor.
+using "``GDREGISTER_CLASS(ClassName)``" specifically during the SCENE level to make them available in the editor.  The
+:term:`extension` currently registers a single class, named ExampleClass.
 
-The method in the example extension registers a single class:
+.. code-block:: cpp
+   :emphasize-lines: 6
 
-.. admonition:: Register ExampleClass
-   :class: dropdown
-
-   .. code-block:: cpp
-      :emphasize-lines: 6
-
-      void initialize_gdextension_types(ModuleInitializationLevel p_level)
-      {
-          if (p_level != MODULE_INITIALIZATION_LEVEL_SCENE) {
-              return;
-          }
-          GDREGISTER_CLASS(ExampleClass);
-      }
+   void initialize_gdextension_types(ModuleInitializationLevel p_level)
+   {
+       if (p_level != MODULE_INITIALIZATION_LEVEL_SCENE) {
+           return;
+       }
+       GDREGISTER_CLASS(ExampleClass);
+   }
 
 The example class implements a function called "``print_type``" :
 
