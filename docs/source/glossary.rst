@@ -204,7 +204,7 @@ Definition of terms specific to GDExtension development
    entry point function
       When you create a GDExtension, you must define an entry point function, to serve as the :term:`entry point` for the :term:`library`.
       In the :term:`template's<template>` :term:`register_types.cpp` file this function is initially named ``example_library_init``.
-      :term:`Godot` calls this function when loading your :term:`library`.
+      :term:`Godot` calls this function when loading the :term:`library`.
 
       Inside this function, you use a ``GDExtensionBinding::InitObject`` to register two critical callbacks:
 
@@ -284,7 +284,6 @@ Definition of terms specific to GDExtension development
 
       .. literalinclude:: share/entry_point_function.c
          :language: c
-         :linenos:
          :caption: register_initializer
          :emphasize-lines: 7
 
@@ -295,7 +294,6 @@ Definition of terms specific to GDExtension development
 
       .. literalinclude:: share/entry_point_function.c
          :language: c
-         :linenos:
          :caption: register_terminator
          :emphasize-lines: 8
 

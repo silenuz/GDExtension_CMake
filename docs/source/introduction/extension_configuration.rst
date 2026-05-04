@@ -169,7 +169,6 @@ Open ``src/register_types.cpp`` and scroll to near the bottom where the main ent
 
 .. literalinclude:: ../share/entry_point_function.c
    :language: c
-   :linenos:
    :caption: Entry Point Function
    :emphasize-lines: 4
 
