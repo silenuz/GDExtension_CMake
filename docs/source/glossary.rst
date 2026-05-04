@@ -215,6 +215,8 @@ Definition of terms specific to GDExtension development
           The name of the entry point function must be the same as the name of the :term:`entry symbol`
 
    register_types.cpp
+      Location: ``src`` directory
+
       A core file in any :term:`GDExtension`, implementations here are used to initialize and register C++ classes with the
       :term:`Godot` engine.  It contains the :term:`entry point` for the :term:`extension`, and has three key functions:
 
@@ -299,8 +301,8 @@ Definition of terms specific to GDExtension development
       registration handler within the :term:`entry point function`, setting up initialization and termination
       routines.
 
-      It is used within the :term:`entry point function` of the :term:`library` to register the :term:`initialization function`
-      for callbacks using :term:`register_initializer`and the :term:`deinitialization function` for callbacks
+      It is used within the :term:`entry point function` of the :term:`library` to register
+      the :term:`initialization function` for callbacks using :term:`register_initializer`and the :term:`deinitialization function` for callbacks
       using :term:`register_terminator`.
 
 Other

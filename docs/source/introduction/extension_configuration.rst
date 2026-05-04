@@ -150,12 +150,7 @@ name, for example "``cooldemo.gdextension``".
 Source Code Configuration
 =========================
 
-The last step is to edit the source code in ``src/register_types.cpp``, :term:`register_types.cpp` is a core file in any :term:`GDExtension`,
-and has three key functions:
-
-* :term:`Entry Point Function(extern "C") <entry point function>`
-* :term:`Initialization Function`
-* :term:`Deinitialization Function`
+The last step is to edit the source code in :term:`register_types.cpp` which can be found in the ``src`` directory.
 
 When :term:`Godot` loads the :term:`project` it will scan the bin sub directory for any :term:`.gdextension files<.gdextension file>`,
 it then uses the libraries section of the :term:`.gdextension file` to determine the path for the :term:`library` on
@@ -175,7 +170,7 @@ for callbacks using :term:`register_initializer` and :term:`register_terminator`
 Entry Point Function
 ^^^^^^^^^^^^^^^^^^^^
 
-Open ``src/register_types.cpp`` and scroll to the :term:`entry point function` it looks like this:
+Open :term:`register_types.cpp` and scroll to the :term:`entry point function` it looks like this:
 
 .. literalinclude:: ../share/entry_point_function.c
    :language: c
@@ -192,21 +187,18 @@ However while the file is open, let's examine the :term:`Initialization Function
 
 Initialization Function
 ^^^^^^^^^^^^^^^^^^^^^^^
-Near the top of the of the file is the ``initialize_gdextension_types`` function,
-which receives pointers from Godot to initiate binding with the engine.
+Near the top of the file is the :term:`initialization function` which is named ``initialize_gdextension_types``,
+it is registered in the :term:`entry point function` using :term:`register_initializer` from :term:`godot-cpp`.
 
-The library_init function sets up registration callbacks (like register_initializer) and defines the initialization level.
-Godot calls this initialization function across four levels:
+.. literalinclude:: ../share/entry_point_function.c
+   :language: c
+   :caption: register_initializer
+   :emphasize-lines: 7
 
-   * CORE: Post-engine core.
-   * SERVERS: Post-servers (physics/rendering).
-   * SCENE: Registration for nodes and objects.
-   * EDITOR: Editor-specific plugins.
+Within the :term:`initialization function` , register classes with :term:`ClassDB`
+using "``GDREGISTER_CLASS(ClassName)``" specifically during the SCENE level to make them available in the editor.
 
-Within the initializer function, register classes with the Godot ClassDB using "``GDREGISTER_CLASS(ClassName)``"
-specifically during the SCENE level to make them available in the editor.
-
-The method in the example extension:
+The method in the example extension registers a single class:
 
 .. code-block:: cpp
    :emphasize-lines: 6
@@ -219,7 +211,6 @@ The method in the example extension:
        GDREGISTER_CLASS(ExampleClass);
    }
 
-The extension currently registers a single class called ``ExampleClass``, at the scene initialization level.
 The example class implements a function called "``print_type``" :
 
 .. code-block:: cpp
@@ -230,8 +221,6 @@ The example class implements a function called "``print_type``" :
 
 To see how the ``ExampleClass`` is used in Godot to print "``Type: 24``", open ``demo/example.gd`` which is
 the script attached to the main scene.
-
-The script is pretty simple:
 
 .. code-block:: gd
 
@@ -246,11 +235,14 @@ it then calls the ``print_type`` function passing itself as the argument.
 
 Deinitialization Function
 ^^^^^^^^^^^^^^^^^^^^^^^^^
+Just below the :term:`initialization function` is the :term:`deinitialization function` which is
+named ``uninitialize_gdextension_types``, it is registered in the :term:`entry point function`
+using :term:`register_terminator` from :term:`godot-cpp`.
 
-The method that is responsible for unloading the extension is called ``uninitialize_gdextension_types`` and should be right below the the ``intialize_gdextension_types`` function,.
-
-* Purpose:  It acts as the counterpart to initialize_gdextension_types, ensuring resources allocated in C++ are properly freed to avoid memory leaks or crashes during hot reloading.
-* Signature: It usually takes ModuleInitializationLevel p_level as an argument to determine if it should clean up core, editor, or scene types
+.. literalinclude:: ../share/entry_point_function.c
+   :language: c
+   :caption: register_terminator
+   :emphasize-lines: 8
 
 Typical Usage:
 
