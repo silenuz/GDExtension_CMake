@@ -142,7 +142,7 @@ Definition of terms specific to GDExtension development
    .gdextension file
        The .gdextension file in your project contains the instructions for how to load the :term:`GDExtension`. The instructions are separated into specific sections.
 
-       The configuration section contains the :term:`library` paths for loading the compiled :term:`extension`.  These paths are relative
+       The libraries section contains the :term:`library` paths for loading the compiled :term:`extension`.  These paths are relative
        to this file.
 
        See `.gdextension`_ for more information
@@ -302,8 +302,8 @@ Definition of terms specific to GDExtension development
       routines.
 
       It is used within the :term:`entry point function` of the :term:`library` to register
-      the :term:`initialization function` for callbacks using :term:`register_initializer`and the :term:`deinitialization function` for callbacks
-      using :term:`register_terminator`.
+      the :term:`initialization function` for callbacks using :term:`register_initializer` and the
+      :term:`deinitialization function` for callbacks using :term:`register_terminator`.
 
 Other
 =====
