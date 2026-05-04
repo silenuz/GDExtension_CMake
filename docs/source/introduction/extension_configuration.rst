@@ -190,45 +190,57 @@ Initialization Function
 Near the top of the file is the :term:`initialization function` which is named ``initialize_gdextension_types``,
 it is registered in the :term:`entry point function` using :term:`register_initializer` from :term:`godot-cpp`.
 
-.. literalinclude:: ../share/entry_point_function.c
-   :language: c
-   :caption: register_initializer
-   :emphasize-lines: 7
+.. admonition:: Entry Point : register_initializer
+   :class: dropdown
+
+   .. literalinclude:: ../share/entry_point_function.c
+      :language: c
+      :caption: register_initializer
+      :emphasize-lines: 7
 
 Within the :term:`initialization function` , register classes with :term:`ClassDB`
 using "``GDREGISTER_CLASS(ClassName)``" specifically during the SCENE level to make them available in the editor.
 
 The method in the example extension registers a single class:
 
-.. code-block:: cpp
-   :emphasize-lines: 6
+.. admonition:: Register ExampleClass
+   :class: dropdown
 
-   void initialize_gdextension_types(ModuleInitializationLevel p_level)
-   {
-       if (p_level != MODULE_INITIALIZATION_LEVEL_SCENE) {
-           return;
-       }
-       GDREGISTER_CLASS(ExampleClass);
-   }
+   .. code-block:: cpp
+      :emphasize-lines: 6
+
+      void initialize_gdextension_types(ModuleInitializationLevel p_level)
+      {
+          if (p_level != MODULE_INITIALIZATION_LEVEL_SCENE) {
+              return;
+          }
+          GDREGISTER_CLASS(ExampleClass);
+      }
 
 The example class implements a function called "``print_type``" :
 
-.. code-block:: cpp
+.. admonition:: print_type
+   :class: dropdown
 
-   void ExampleClass::print_type(const Variant &p_variant) const {
-       print_line(vformat("Type: %d", p_variant.get_type()));
-   }
+   .. code-block:: cpp
+
+      void ExampleClass::print_type(const Variant &p_variant) const {
+          print_line(vformat("Type: %d", p_variant.get_type()));
+      }
 
 To see how the ``ExampleClass`` is used in Godot to print "``Type: 24``", open ``demo/example.gd`` which is
 the script attached to the main scene.
 
-.. code-block:: gd
+.. admonition:: example.gd
+   :class: dropdown
 
-   extends Node
+   .. code-block:: gd
 
-   func _ready() -> void:
-       var example := ExampleClass.new()
-       example.print_type(example)
+      extends Node
+
+      func _ready() -> void:
+          var example := ExampleClass.new()
+          example.print_type(example)
 
 When the scene reaches the ``_ready()`` state, the example class object is instantiated in the standard way,
 it then calls the ``print_type`` function passing itself as the argument.
@@ -239,10 +251,13 @@ Just below the :term:`initialization function` is the :term:`deinitialization fu
 named ``uninitialize_gdextension_types``, it is registered in the :term:`entry point function`
 using :term:`register_terminator` from :term:`godot-cpp`.
 
-.. literalinclude:: ../share/entry_point_function.c
-   :language: c
-   :caption: register_terminator
-   :emphasize-lines: 8
+.. admonition:: Entry Point : register_terminator
+   :class: dropdown
+
+   .. literalinclude:: ../share/entry_point_function.c
+      :language: c
+      :caption: register_terminator
+      :emphasize-lines: 8
 
 Typical Usage:
 
