@@ -219,9 +219,7 @@ Definition of terms specific to GDExtension development
       :term:`Godot` engine.  It contains the :term:`entry point` for the :term:`extension`, and has three key functions:
 
       * :term:`Entry Point Function <entry point function>`
-
       * An :term:`Initialization Function`
-
       * A :term:`Deinitialization Function`
 
    Initialization Function
@@ -248,8 +246,7 @@ Definition of terms specific to GDExtension development
       Found in :term:`register_types.cpp` this function is registered as a callback function in the :term:`entry point function`
       using :term:`register_terminator`.  This function cleans up any memory or resources allocated during initialization.
 
-      * Purpose:  It acts as the counterpart to the :term:`initialization function`, ensuring resources allocated,
-                  in C++ are properly freed to avoid memory leaks or crashes.
+      * Purpose:  It acts as the counterpart to the :term:`initialization function`, ensuring resources allocated are properly freed to avoid memory leaks or crashes.
       * Signature: It usually takes ModuleInitializationLevel p_level as an argument to determine if it should clean up core, editor, or scene types
 
    ClassDB
