@@ -206,7 +206,7 @@ Definition of terms specific to GDExtension development
       In the :term:`template's<template>` :term:`register_types.cpp` file this function is initially named ``example_library_init``.
       :term:`Godot` calls this function when loading the :term:`library`.
 
-      Inside this function, you use a ``GDExtensionBinding::InitObject`` to register two critical callbacks:
+      Inside this function you use :term:`GDExtensionBinding::InitObject` to register two critical callbacks:
 
       * An initializer, by using :term:`register_initializer` to register the :term:`initialization function`
       * A terminator, by using :term:`register_terminator` to register the
@@ -246,7 +246,7 @@ Definition of terms specific to GDExtension development
       Name in :term:`template`: ``uninitialize_gdextension_types``.
 
       Found in :term:`register_types.cpp` this function is registered as a callback function in the :term:`entry point function`
-      using :term:`register_terminator`.
+      using :term:`register_terminator`.  This function cleans up any memory or resources allocated during initialization.
 
       * Purpose:  It acts as the counterpart to the :term:`initialization function`, ensuring resources allocated,
                   in C++ are properly freed to avoid memory leaks or crashes.
@@ -296,6 +296,15 @@ Definition of terms specific to GDExtension development
          :language: c
          :caption: register_terminator
          :emphasize-lines: 8
+
+   GDExtensionBinding::InitObject
+      A key component in the :term:`godot cpp` bindings, it is used to initialize the :term:`library`. It acts as a
+      registration handler within the :term:`entry point function`, setting up initialization and termination
+      routines.
+
+      It is used within the :term:`entry point function` of the :term:`library` to register the :term:`initialization function`
+      for callbacks using :term:`register_initializer`and the :term:`deinitialization function` for callbacks
+      using :term:`register_terminator`.
 
 Other
 =====

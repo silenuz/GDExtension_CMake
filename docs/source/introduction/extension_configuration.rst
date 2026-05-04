@@ -91,17 +91,15 @@ The :term:`.gdextension file` in the :term:`project` contains the instructions f
 The instructions are separated into specific sections.  The libraries section contains the path to the compiled :term:`library`,
 for each :term:`target platform`, these paths are relative to the :term:`.gdextension file`.
 
-Now that cmake compiles the :term:`library` with a different name, in order for :term:`Godot` to be able to load the :term:`extension`, 
-the :term:`library`'s :term:`entry symbol` has to be edited.  As well the :term:`library`'s path has to be updated in the
-:term:`.gdextension file`.
+Now that cmake compiles the :term:`library` with a different name, in order for :term:`Godot` to be able to load the :term:`extension`,
+the :term:`library`'s path has to be updated in the :term:`.gdextension file`.  First the :term:`entry symbol` has to be renamed.
 
 Open the :term:`extension`'s :term:`.gdextension file` for example (``demo/bin/example.gdextension``).
 
 Change Entry Symbol
 ^^^^^^^^^^^^^^^^^^^
-The value of the ``entry_symbol`` key, in the configuration section of the :term:`.gdextension file`, informs :term:`Godot`
-of the name of the :term:`entry point` function, which will be the first function executed when the :term:`extension` is
-loaded.
+The value of the ``entry_symbol`` key, in the configuration section of the :term:`.gdextension file` defines the name of
+the :term:`entry point function`, which will be the first function executed when the :term:`extension` is loaded.
 
 Find the configurations section (it should be near the top) and looks like this:
 
@@ -149,44 +147,51 @@ however it is recommended that the :term:`.gdextension file` be renamed.
 Currently the :term:`.gdextension file` is named "``example.gdextension``" , rename it to reflect the :term:`library`
 name, for example "``cooldemo.gdextension``".
 
-
 Source Code Configuration
 =========================
 
 The last step is to edit the source code in ``src/register_types.cpp``, :term:`register_types.cpp` is a core file in any :term:`GDExtension`,
 and has three key functions:
 
-* :term:`Initialization Function`:
-* Deinitialization Function:
-    name: uninitialize_gdextension_types. This cleans up any memory or resources allocated during initialization.
-* Entry Point (extern "C"):
-    The main entry function (e.g., example_library_init) that Godot calls when loading the dynamic library. It sets up the binding between your C++ code and the GDExtension interface.
+* :term:`Entry Point Function(extern "C") <entry point function>`
+* :term:`Initialization Function`
+* :term:`Deinitialization Function`
 
-Change Entry Point
-^^^^^^^^^^^^^^^^^^
+When :term:`Godot` loads the :term:`project` it will scan the bin sub directory for any :term:`.gdextension files<.gdextension file>`,
+it then uses the libraries section of the :term:`.gdextension file` to determine the path for the :term:`library` on
+the current :term:`host platform`.  This path is used to load the :term:`library`, and the :term:`entry symbol` in the
+:term:`.gdextension file` tells :term:`Godot` which function is to be used as the :term:`entry point function`.
 
-Open ``src/register_types.cpp`` and scroll to near the bottom where the main entry function is, it looks like this:
+.. figure:: ../diagrams/extension_load_flow.svg
+    :width: 100%
+
+    Extension Load Flow
+
+The :term:`Entry Point Function` is the first function executed when the :term:`library` is loaded, inside this function
+:term:`GDExtensionBinding::InitObject` is used to register the :term:`Initialization Function` and :term:`Deinitialization Function`
+for callbacks using :term:`register_initializer` and :term:`register_terminator`.
+
+
+Entry Point Function
+^^^^^^^^^^^^^^^^^^^^
+
+Open ``src/register_types.cpp`` and scroll to the :term:`entry point function` it looks like this:
 
 .. literalinclude:: ../share/entry_point_function.c
    :language: c
    :caption: Entry Point Function
    :emphasize-lines: 4
 
-Now replace the word example in the function definition to be the name chosen as the entry symbol in the gdextension
-:term:`.gdextension file`.  For the :term:`cooldemo` example the original:
+Now replace the name of the function to be the same as the name chosen as the :term:`entry symbol`
+in the :term:`.gdextension file`.  For the :term:`cooldemo` example the original,
+``example_library_init`` would become ``cooldemo_library_init``.
 
-``example_library_init``
+At this point the :term:`extension` is properly configured, and can be built and tested.
+However while the file is open, let's examine the :term:`Initialization Function` to see how the extension's
+"``ExampleClass``" is registered, as well as a look at the :term:`Deinitialization Function`.
 
-would become:
-
-``cooldemo_library_init``
-
-At this point the :term:`extension` is properly configured, and can be built and tested,
-however while the file is open, let's examine the other two functions, to see how the extension's
-"``ExampleClass``" is registered, and examine the method that unloads the extension.
-
-Registering Classes
-^^^^^^^^^^^^^^^^^^^
+Initialization Function
+^^^^^^^^^^^^^^^^^^^^^^^
 Near the top of the of the file is the ``initialize_gdextension_types`` function,
 which receives pointers from Godot to initiate binding with the engine.
 
@@ -239,8 +244,8 @@ The script is pretty simple:
 When the scene reaches the ``_ready()`` state, the example class object is instantiated in the standard way,
 it then calls the ``print_type`` function passing itself as the argument.
 
-Un-Initialization
-^^^^^^^^^^^^^^^^^
+Deinitialization Function
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The method that is responsible for unloading the extension is called ``uninitialize_gdextension_types`` and should be right below the the ``intialize_gdextension_types`` function,.
 
