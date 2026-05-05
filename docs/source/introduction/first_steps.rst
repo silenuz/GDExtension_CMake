@@ -141,13 +141,9 @@ artifacts.
 If the :term:`CMake` :term:`generator` is :term:`Ninja`
 or `Makefiles <https://cmake.org/cmake/help/latest/manual/cmake-generators.7.html#makefile-generators>`_
 you can use the configuration stage to generate a :term:`compile_commands.json` in the :term:`build directory` for use
-with :term:`clangd`. To do so the :term:`CMAKE_EXPORT_COMPILE_COMMANDS` :term:`variable` is assigned a value
-of ``ON`` and passed as an :term:`option` to the cmake executable.
+with :term:`clangd`.
 
-.. code:: shell
-
-   cmake -S . -B cmake-build -G Ninja -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
-
+.. include:: /share/stubs/generate_compile_commands.rst
 
 Initial Build
 =============
