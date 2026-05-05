@@ -1,5 +1,8 @@
 :topic: Terms
 
+.. role:: underline
+    :class: underline
+
 Glossary
 ________
 
@@ -217,7 +220,7 @@ Definition of terms specific to GDExtension development
    register_types.cpp
       Location: ``src`` directory
 
-      A core file in any :term:`GDExtension`, implementations here are used to initialize and register C++ classes with the
+      A core file in :term:`GDExtension` :term:`template`, implementations here are used to initialize and register C++ classes with the
       :term:`Godot` engine.  It contains the :term:`entry point` for the :term:`extension`, and has three key functions:
 
       * :term:`Entry Point Function <entry point function>`
@@ -256,7 +259,7 @@ Definition of terms specific to GDExtension development
       It provides access to metadata stored for every class registered within the engine, allowing you to inspect
       properties, methods, and signals at runtime.
 
-      Key Functions:
+      **Key Functions:**
 
       * Instantiating Objects:
          You can create a new instance of a built-in class by its name using ClassDB.instantiate("ClassName")
@@ -304,6 +307,29 @@ Definition of terms specific to GDExtension development
       It is used within the :term:`entry point function` of the :term:`library` to register
       the :term:`initialization function` for callbacks using :term:`register_initializer` and the
       :term:`deinitialization function` for callbacks using :term:`register_terminator`.
+
+   GDCLASS
+      GDCLASS is a fundamental macro used in C++ header files to register a custom class so the engine can
+      interact with it. It serves as a bridge, enabling signal, property, and method binding for use in
+      GDScript and the Godot Editor.
+
+      * Core Requirements:
+         Single Inheritance: The class must inherit from a :term:`Godot` built in class
+         (like Node, Sprite2D, or Resource).  :term:`Godot` does not support multiple inheritance for
+         :term:`GDExtension` classes.
+      * Macro Placement:
+         The macro must be placed at the very beginning of the class body, usually under the public access modifier.
+      * Required Function:
+         You must declare a ``protected static void _bind_methods()`` function in your class header.
+         This is where you register the class's methods, properties, and signals to the :term:`Godot` :term:`ClassDB`.
+
+      .. admonition:: GDCLASS header file example
+         :class: dropdown
+
+         .. literalinclude:: share/gdclass_example.h
+            :language: cpp
+            :caption: GDCLASS example
+            :emphasize-lines: 8,12
 
 Other
 =====
