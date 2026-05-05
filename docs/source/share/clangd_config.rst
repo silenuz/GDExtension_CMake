@@ -15,8 +15,7 @@ Create a file name ``.clangd`` in the top level of the :term:`template` director
 :term:`compile commands` file in the :term:`build directory`.  For :term:`clangd` to see this file we have to set the
 value of the ``CompilationDatabase`` key to point to the :term:`build directory`.
 
-Also if plan to use the ``# pargma once`` directive you will have to remove it from consideration by :term:`clangd`.
-Add the following to the ``.clangd`` file.
+Add the following to the ``.clangd`` file, and save it.
 
 .. code-block:: ini
 
@@ -27,3 +26,4 @@ Add the following to the ``.clangd`` file.
       CompilationDatabase: cmake-build/
 
 
+:term:`clangd` is now configured.
