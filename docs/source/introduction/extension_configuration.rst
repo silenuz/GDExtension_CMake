@@ -89,7 +89,7 @@ Extension Configuration
 
 The :term:`.gdextension file` in the :term:`project` contains the instructions for how to load the :term:`extension`.
 The instructions are separated into specific sections.  The libraries section contains the path to the compiled :term:`library`,
-for each :term:`target platform`, these paths are relative to the :term:`.gdextension file`.
+for each :term:`host platform`, these paths are relative to the :term:`.gdextension file`.
 
 Now that cmake compiles the :term:`library` with a different name, in order for :term:`Godot` to be able to load the :term:`extension`,
 the :term:`library`'s path has to be updated in the :term:`.gdextension file`.  First the :term:`entry symbol` has to be renamed.

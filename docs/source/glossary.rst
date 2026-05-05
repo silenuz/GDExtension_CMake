@@ -30,7 +30,7 @@ Definition of terms used in regards to the CMake build system.
        Variables are the basic unit of storage in the CMake Language. Their values are always of string type, though some commands may interpret the strings as values of other types.
        The set() and unset() commands explicitly set or unset a variable.
 
-       See `CMake variable`_ ,`CMake variables`_ , and `CMake build variables`_ for more information.
+       See `CMake variable`_ , `CMake variables`_ , and `CMake build variables`_ for more information.
 
    build variable
         Software projects often require variables to be set on the command line when invoking :term:`CMake`.  Other project-specific variables may be available to control builds,

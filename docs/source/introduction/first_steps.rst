@@ -120,7 +120,7 @@ listed below:
 * ``-S`` specifies the source directory as the current directory
 * ``-B`` specifies the :term:`build directory` as ``cmake-build``,
     can be referred to as ``${CMAKE_BINARY_DIR}`` in the ``CMakeLists.txt`` file
-* ``-G`` specifies the :term:`CMake` :term:`generator` :term:`Ninja`
+* ``-G`` specifies the :term:`CMake` :term:`generator` as :term:`Ninja`
 
 The :term:`build directory` is specified so that generated files do not clutter the source tree with build
 artifacts.
