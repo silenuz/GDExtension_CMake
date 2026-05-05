@@ -311,7 +311,7 @@ Definition of terms specific to GDExtension development
    GDCLASS
       GDCLASS is a fundamental macro used in C++ header files to register a custom class so the engine can
       interact with it. It serves as a bridge, enabling signal, property, and method binding for use in
-      GDScript and the Godot Editor.
+      GDScript and the :term:`Godot` Editor.
 
       * Core Requirements:
          Single Inheritance: The class must inherit from a :term:`Godot` built in class
@@ -321,7 +321,7 @@ Definition of terms specific to GDExtension development
          The macro must be placed at the very beginning of the class body, usually under the public access modifier.
       * Required Function:
          You must declare a ``protected static void _bind_methods()`` function in your class header.
-         This is where you register the class's methods, properties, and signals to the :term:`Godot` :term:`ClassDB`.
+         This is where you register the class's methods, properties, and signals with the :term:`Godot` :term:`ClassDB`.
 
       .. admonition:: GDCLASS header file example
          :class: dropdown
