@@ -6,3 +6,4 @@ Open the :term:`template` folder in Clion, you will be presented with the Open p
 
 .. include:: /ide/jb/jetbrains_config.rst
 
+CLion should now be configured.

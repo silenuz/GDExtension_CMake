@@ -31,5 +31,15 @@ From the dropdown choose ``Edit Configurations``.
 
     Configuration Dropdown
 
+Choose the :term:`library` in the left panel of the configuration window.  There are three fields that have to
+filled in.
 
+* Executable - this should be the path to the :term:`Godot` executable
+* Program arguments - ``--editor --path /absolute/path/to/Godot/project`` (copied above)
+* Working directory - $ProjectFileDir$
+
+.. figure:: /ide/img/jb_build_configuration.gif
+    :width: 100%
+
+    Build Configuration
 
