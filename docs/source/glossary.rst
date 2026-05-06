@@ -20,6 +20,13 @@ Definition of terms used in regards to the CMake build system.
 
        See `CMake docs <CMake_>`__ for more information.
 
+   CMake cache
+   cache
+      The CMake cache may be thought of as a configuration file.
+      The first time CMake is run on a project, it produces a CMakeCache.txt file in the top directory of the
+      build tree. CMake uses this file to store a set of global cache variables, whose values persist across
+      multiple runs within a project build tree.
+
    generator
    Generator
        A CMake Generator is responsible for writing the input files for the native build system.

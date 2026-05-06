@@ -9,6 +9,7 @@ CMake
 * `Download <CMake download_>`__
 * `CMake build variables`_
 * `CMake build configuration`_
+* `CMake Cache`_
 * `CMake generator`_
 * `CMake install`_
 * `CMake options`_

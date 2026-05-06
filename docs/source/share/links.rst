@@ -12,6 +12,7 @@
 .. _CMake target: https://cmake.org/cmake/help/latest/guide/user-interaction/index.html#selecting-a-target
 .. _CMake install: https://cmake.org/cmake/help/latest/guide/user-interaction/index.html#software-installation
 .. _Cmake download: https://cmake.org/download/
+.. _CMake Cache: https://cmake.org/cmake/help/book/mastering-cmake/chapter/CMake%20Cache.html
 
 .. _ClassDB: https://docs.godotengine.org/en/stable/classes/class_classdb.html
 .. _Godot CPP Template: https://github.com/godotengine/godot-cpp-template
