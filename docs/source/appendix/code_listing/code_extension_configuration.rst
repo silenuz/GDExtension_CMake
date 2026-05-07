@@ -1,5 +1,5 @@
-Extension Configuration
------------------------
+Extension Configuration Code Listings
+-------------------------------------
 
 .. _coderef101:
 

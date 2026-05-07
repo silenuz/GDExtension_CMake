@@ -1,0 +1,46 @@
+#*
+ Simple code file template for CLion and Rider
+ The snake_case of the file name is converted to PascalCase for
+ use as the Class name.
+
+ The name of the ParentClass is converted to snake_case for including the header file required
+ for the Godot parent class, while ignoring 2D, 3D etc when making the conversion to snake.
+
+ Standard header guards are generated, along with basic boiler plate code for any GDExtension header file.
+*#
+#set( $PascalCaseName = "" )
+#if( $NAME.contains("_") )
+    #set($part = "")
+#set($parts = $NAME.split("_"))
+#foreach($part in $parts)
+    #if($part.length() > 0)
+        #set($firstChar = $part.substring(0, 1).toUpperCase())
+        #set($restChars = $part.substring(1).toLowerCase())
+        #set($PascalCaseName = "${PascalCaseName}${firstChar}${restChars}")
+    #end
+#end
+#else
+     #set($PascalCaseName = "${NAME}")
+#end
+#set($include_file = $ParentClass.replaceAll('([0-9])D', '$1d').replaceAll("([a-z])([A-Z])", "$1_$2").toLowerCase())
+#parse("C File Header.h")
+#[[#ifndef]]# ${INCLUDE_GUARD}
+#[[#define]]# ${INCLUDE_GUARD}
+
+#[[#include]]# <godot_cpp/classes/${include_file}.hpp>
+
+using namespace godot;
+
+class ${PascalCaseName} : public ${ParentClass}{
+	GDCLASS(${PascalCaseName},${ParentClass});
+
+protected:
+	static void _bind_methods();
+
+public:
+
+	${PascalCaseName}();
+};
+
+
+#[[#endif]]# //${INCLUDE_GUARD}

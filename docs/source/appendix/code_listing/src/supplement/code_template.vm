@@ -1,0 +1,33 @@
+#*
+ Simple code file template for CLion and Rider
+ The snake_case of the file name is converted to PascalCase for
+ use as the Class name.
+
+ Generates a class_db.hpp include, along with empth implementations for the
+ constructor and _bind_methods functions.
+*#
+#set( $PascalCaseName = "" )
+#if( $NAME.contains("_") )
+    #set($part = "")
+#set($parts = $NAME.split("_"))
+#foreach($part in $parts)
+    #if($part.length() > 0)
+        #set($firstChar = $part.substring(0, 1).toUpperCase())
+        #set($restChars = $part.substring(1).toLowerCase())
+        #set($PascalCaseName = "${PascalCaseName}${firstChar}${restChars}")
+    #end
+#end
+#else
+     #set($PascalCaseName = "${NAME}")
+#end
+#parse("C File Header.h")
+#[[#include]]# "${NAME}.hpp"
+#[[#include]]# <godot_cpp/core/class_db.hpp>
+
+void ${PascalCaseName}::_bind_methods(){
+
+}
+
+${PascalCaseName}::${PascalCaseName}(){
+
+}

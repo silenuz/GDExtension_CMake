@@ -6,3 +6,4 @@ Source Code Listing
 
     code_extension_configuration
     exercise_one
+    supplemental
