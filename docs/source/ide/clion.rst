@@ -39,11 +39,11 @@ From the dropdown choose ``Edit Configurations``.
 
     Configuration Dropdown
 
-Choose the :term:`library` in the left panel of the configuration window.  There are three fields that have to
+Choose the :term:`library` by name in the left panel of the configuration window.  There are three fields that have to
 filled in.
 
 * Executable - this should be the path to the :term:`Godot` executable
-* Program arguments - ``--editor --path /absolute/path/to/Godot/project`` (copied above)
+* Program arguments - ``--editor --path /absolute/path/to/Godot/project`` (path copied above)
 * Working directory - $ProjectFileDir$
 
 .. figure:: /ide/img/cl_build_configuration.gif
@@ -53,8 +53,8 @@ filled in.
 
 CLion should now be configured.
 
-Creating A New File Template
-============================
+CLion New file Template
+=======================
 The following details how to add a file template for creating a new :term:`GDExtension` class.
 It generates the header and implementation files with the necessary boilerplate for use as
 part of a :term:`GDExtension`.
