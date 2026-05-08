@@ -3,7 +3,12 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Version: Rough Draft 04 (04/05/2026)
+Version: Rough Draft 04 (08/05/2026)
+First steps (D3)
+Template Configuration (D2)
+Rider (D1)
+CLion (D1)
+
 
 CMake Guide For GDExtensions
 ----------------------------

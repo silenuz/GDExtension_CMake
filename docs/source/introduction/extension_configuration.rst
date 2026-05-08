@@ -1,5 +1,5 @@
-Extension Configuration
------------------------
+Template Configuration
+----------------------
 A description of the steps required to customize the extension:
 
 * Change the :term:`library` name
