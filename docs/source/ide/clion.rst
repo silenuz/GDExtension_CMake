@@ -43,7 +43,7 @@ Choose the :term:`library` by name in the left panel of the configuration window
 filled in.
 
 * Executable - this should be the path to the :term:`Godot` executable
-* Program arguments - ``--editor --path /absolute/path/to/Godot/project`` (path copied above)
+* Program arguments - ``--editor --path /absolute/path/to/Godot/project`` (project path copied above)
 * Working directory - $ProjectFileDir$
 
 .. figure:: /ide/img/cl_build_configuration.gif

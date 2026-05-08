@@ -20,7 +20,7 @@ If Rider created a ``cmake-build-debug`` directory, and your :term:`build direct
 the ``cmake-build-debug`` directory.
 
 Depending on the operating system the correct debugger may or not be set, in order to be able to set breakpoints
-and get code hints the correct debugger must be set.  Open the File manu and choose ``Settings``, under settings expand
+and get code hints the correct debugger must be set.  Open the File menu and choose ``Settings``, under settings expand
 ``Build, Execution, Deployment`` and select ``Toolchains``, make sure the ``Debugger`` is set to ``Bundled LLDB``.
 
 .. figure:: /ide/img/rdr_set_debugger.gif
@@ -56,13 +56,19 @@ Choose the :term:`library` by name in the left panel of the configuration window
 filled in.
 
 * Executable - this should be the path to the :term:`Godot` executable
-* Program arguments - ``--editor --path /absolute/path/to/Godot/project`` ( path copied above)
+* Program arguments - ``--editor --path /absolute/path/to/Godot/project`` (project path copied above)
 * Working directory - $ProjectFileDir$
 
-.. figure:: /ide/img/jb_build_configuration.gif
+.. figure:: /ide/img/rdr_build_config.gif
     :width: 100%
 
     Build Configuration
 
+To be able to set breakpoints, the :term:`template` must be launched at least once in the editor first.  Once
+the necessary fields are filled in, click apply and launch the :term:`project` in the :term:`Godot` editor.
+
 Rider should now be configured.
+
+Rider New File Template
+=======================
 
