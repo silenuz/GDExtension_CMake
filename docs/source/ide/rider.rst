@@ -77,6 +77,8 @@ The following details how to add a file template for creating a new :term:`GDExt
 It generates the header and implementation files with the necessary boilerplate for use as
 part of a :term:`GDExtension`.
 
+Creating The Template
+^^^^^^^^^^^^^^^^^^^^^
 Click the main File menu item, and select Settings, expand the editor settings and
 select ``File and Code templates``.  Due to the fact that the ``C++`` language category uses
 the Resharper template engine, as it considers C++ a .Net language. As a result this template will be created under
@@ -122,3 +124,6 @@ Now the new file context menu in the project tree can be used to create a new cl
     :width: 100%
 
     Using the template
+
+.. include:: /share/stubs/jetbrains_file_template.rst
+

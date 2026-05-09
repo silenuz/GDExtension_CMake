@@ -59,6 +59,8 @@ The following details how to add a file template for creating a new :term:`GDExt
 It generates the header and implementation files with the necessary boilerplate for use as
 part of a :term:`GDExtension`.
 
+Creating The Template
+^^^^^^^^^^^^^^^^^^^^^
 Click the main File menu item, and select Settings, expand the editor settings and
 select ``File and Code templates``.  Click the plus button to create a new template,
 give it a name, and an extension of either .h or .hpp.
@@ -106,4 +108,4 @@ Now the new file context menu in the project tree to create a new class for the 
 
     Using the template
 
-
+.. include:: /share/stubs/jetbrains_file_template.rst
