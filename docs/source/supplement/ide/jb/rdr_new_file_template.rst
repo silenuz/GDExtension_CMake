@@ -52,3 +52,4 @@ Now the new file context menu in the project tree can be used to create a new cl
 
     Using the template
 
+For an explanation of how the template works see :ref:`supref-ide-03`.

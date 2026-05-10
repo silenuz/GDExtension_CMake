@@ -53,3 +53,4 @@ Now the new file context menu in the project tree to create a new class for the 
 
     Using the template
 
+For an explanation of how the template works see :ref:`supref-ide-03`.
