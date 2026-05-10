@@ -1,3 +1,5 @@
+.. _supref-ide-02:
+
 Rider New File Template
 =======================
 The following details how to add a file template for creating a new :term:`GDExtension` class.

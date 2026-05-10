@@ -28,3 +28,6 @@
 .. _Language Server Protocol: https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/
 .. _Entry Point: https://learn.microsoft.com/hr-hr/cpp/build/reference/entry-entry-point-symbol?view=msvc-170
 .. _Entry Symbol: https://learn.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.vcprojectengine.vclinkertool.entrypointsymbol?view=visualstudiosdk-2022
+
+.. _Jetbrains CLion templates: https://www.jetbrains.com/help/clion/using-file-and-code-templates.html
+.. _Jetbrains CLion template variables: https://www.jetbrains.com/help/clion/file-template-variables.html#predefined_template_variables

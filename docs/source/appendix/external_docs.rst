@@ -38,6 +38,9 @@ Other
 * `Language Server Protocol`_
 * `Ninja`_
 * `SCons`_
+* `Jetbrains CLion templates`_
+* `Jetbrains CLion template variables`_
+
 
 
 

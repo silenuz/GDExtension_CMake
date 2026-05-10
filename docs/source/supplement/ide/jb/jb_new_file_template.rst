@@ -1,3 +1,5 @@
+.. _supref-ide-03:
+
 Examining The Jetbrains New File Template
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 First the template checks to see if the file name contains an underscore, if so it assumes file_name is snake_case,
@@ -32,7 +34,9 @@ C File Header template
 
 ``#parse("C File Header.h")``
 
-Any variables declared in the file header will also be available when using the file template.
+Any variables declared in the file header will also be available when using the file template.  To change the
+C File header see :ref:`supref-ide-04` for CLion, or tbd for Rider.
+
 Next it generates the header guards based on the configured naming convention in the ide's settings.
 
 .. code-block::

@@ -1,3 +1,5 @@
+.. _supref-ide-01:
+
 CLion New file Template
 =======================
 The following details how to add a file template for creating a new :term:`GDExtension` class.

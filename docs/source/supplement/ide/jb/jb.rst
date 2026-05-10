@@ -9,3 +9,4 @@ Supplementary tools and tips for jetbrains ides
    cl_new_file_template.rst
    rdr_new_file_template.rst
    jb_new_file_template.rst
+   clion_tips.rst
