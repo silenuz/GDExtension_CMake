@@ -219,7 +219,7 @@ Definition of terms specific to GDExtension development
       Inside this function you use :term:`GDExtensionBinding::InitObject` to register two critical callbacks:
 
       * An initializer, by using :term:`register_initializer` to register the :term:`initialization function`
-      * A terminator, by using :term:`register_terminator` to register the
+      * A terminator, by using :term:`register_terminator` to register the :term:`Deinitialization Function`
 
        .. important::
           The name of the entry point function must be the same as the name of the :term:`entry symbol`
@@ -307,11 +307,9 @@ Definition of terms specific to GDExtension development
          :emphasize-lines: 8
 
    GDExtensionBinding::InitObject
-      A key component in the :term:`godot cpp` bindings, it is used to initialize the :term:`library`. It acts as a
-      registration handler within the :term:`entry point function`, setting up initialization and termination
-      routines.
+      A key component in the :term:`godot cpp` bindings, it is used to initialize the :term:`library`.
 
-      It is used within the :term:`entry point function` of the :term:`library` to register
+      Used within the :term:`entry point function` of the :term:`library` to register
       the :term:`initialization function` for callbacks using :term:`register_initializer` and the
       :term:`deinitialization function` for callbacks using :term:`register_terminator`.
 

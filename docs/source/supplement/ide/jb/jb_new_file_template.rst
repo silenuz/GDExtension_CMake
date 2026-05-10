@@ -35,7 +35,7 @@ C File Header template
 ``#parse("C File Header.h")``
 
 Any variables declared in the file header will also be available when using the file template.  To change the
-C File header see :ref:`supref-ide-04` for CLion, or tbd for Rider.
+C File header see :ref:`supref-ide-04` for CLion, or :ref:`supref-ide-06` for Rider.
 
 Next it generates the header guards based on the configured naming convention in the ide's settings.
 
@@ -68,3 +68,4 @@ Lastly it generates the closing header guard
 
 ``#[[#endif]]# //${INCLUDE_GUARD}``
 
+For information about configuring the header guard see :ref:`supref-ide-05` for Clion and :ref:`supref-ide-07` for Rider.

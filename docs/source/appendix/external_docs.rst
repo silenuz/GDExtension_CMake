@@ -40,6 +40,10 @@ Other
 * `SCons`_
 * `Jetbrains CLion templates`_
 * `Jetbrains CLion template variables`_
+* `Jetbrains Rider templates`_
+* `Jetbrains Rider template variables`_
+* `Jetbrains Rider net templates`_
+* `Jetbrains Rider net template variables`_
 
 
 
