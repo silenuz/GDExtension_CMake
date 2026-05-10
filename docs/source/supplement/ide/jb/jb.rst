@@ -10,3 +10,4 @@ Supplementary tools and tips for jetbrains ides
    rdr_new_file_template.rst
    jb_new_file_template.rst
    clion_tips.rst
+   rider_tips.rst

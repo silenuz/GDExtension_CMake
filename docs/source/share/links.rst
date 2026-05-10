@@ -31,3 +31,7 @@
 
 .. _Jetbrains CLion templates: https://www.jetbrains.com/help/clion/using-file-and-code-templates.html
 .. _Jetbrains CLion template variables: https://www.jetbrains.com/help/clion/file-template-variables.html#predefined_template_variables
+.. _Jetbrains Rider templates: https://www.jetbrains.com/help/rider/Templates_Web.html
+.. _Jetbrains Rider template variables: https://www.jetbrains.com/help/rider/file_template_variables.html
+.. _Jetbrains Rider net templates: https://www.jetbrains.com/help/rider/Templates__Creating_and_Editing_Templates.html
+.. _Jetbrains Rider net template variables: https://www.jetbrains.com/help/rider/Templates__Template_Basics__Template_Variables.html
