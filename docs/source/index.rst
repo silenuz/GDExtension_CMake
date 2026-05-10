@@ -30,6 +30,7 @@ Requirements:
    godot-cpp/configuration
    godot-cpp/variables
    ide/ide
+   supplement/supplements.rst
    appendix/appendix
    glossary
 
